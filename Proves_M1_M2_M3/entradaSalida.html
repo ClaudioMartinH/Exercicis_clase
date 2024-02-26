@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada y Salida de Datos</title>
+</head>
+<body>
+    <h1>Datos del Usuario</h1>
+    <p>Usuario:  <input type="text"   id="usuario" value="Claudio"></p>
+    <p>Edad:     <input type="number" id="Edad"    value="37"></p>      <!--esto lo reconoce como texto, hay que hacer el parseInt de más abajo-->
+    <hr>
+    <button onclick="confirmarUsuario()">Confirmar Datos</button>
+    <p id="mensaje"></p>
+
+    <script>
+        function confirmarUsuario() {
+            //VARIABLES
+            let nombreUsuario = document.getElementById("usuario").value;       //para leer el valor introducido, 
+            //value es el valor predeterminado de la persona que llena el formulario
+            let edadUsuario = parseInt(document.getElementById("Edad").value)       //      let edadUsuario = parseInt(document.getElementById("edad").value); 
+            console.log('edadUsuario', edadUsuario, typeof(edadUsuario));
+            //parseInt nos permite convertir 
+            //un valor numerico del documento HTML en un numero entero en Js. si no, no se convierte, lo asume como texto
+            let mensaje = '';
+            let datosCorrectos = '';
+            let confirmado = false; 
+
+            //Procedimiento
+            mensaje = 'Hola Usuario. Te llamas' + nombreUsuario + 'y tienes' + edadUsuario + 'años';
+            console.log('mensaje: ', mensaje);
+            document.getElementById('mensaje').innerHTML = mensaje;
+            alert(mensaje);
+
+            datosCorrectos = prompt("Están estos datos correctos? (Si/No)", "Si");
+            //muestra un pop up con la pregunta y guarda la respuesta en una variable string
+            console.log('datosCorrectos', datosCorrectos);
+
+            confirmado = confirm("¿Guardar los valores en la base de datos?");
+            //muestra un pop up con la pregunta y guarda la respuesta en una variable boolean
+            console.log('confirmado', confirmado);
+
+        }
+
+    </script>
+
+</body>
+</html>

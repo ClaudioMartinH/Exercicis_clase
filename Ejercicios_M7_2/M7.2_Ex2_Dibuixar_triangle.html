@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibuixar triangle</title>
+    <p>Introdueix la mida que vols que tingui el triangle<input type="number" id="numeroU"></p>
+    <button onclick="dibuixaTriangle()">Clicka per dibuixar</button>
+    <p id="missatge"></p>
+</head>
+<body>
+    <script>
+        function dibuixaTriangle(){
+            let mesuraUsuari = parseInt(document.getElementById("numeroU").value);
+            console.log(mesuraUsuari);
+            let simbolDibuix = "*";
+            let areaTriangle = "";
+            let i = 0;
+            let j = 0;
+                for (i = 0; i <= mesuraUsuari; i++){
+                    for (j = 0; j < i; j++){
+                        areaTriangle += simbolDibuix + " ";
+                        }; 
+                areaTriangle += "<br>";
+                };
+                
+            document.getElementById("missatge").innerHTML = areaTriangle;
+        }
+    </script>
+</body>
+</html>

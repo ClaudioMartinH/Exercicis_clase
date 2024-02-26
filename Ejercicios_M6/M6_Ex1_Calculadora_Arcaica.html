@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora arcaica</title>
+    <h1 style="color: rgb(39, 55, 55);">Juguem a les operacions matemàtiques</h1>
+    <h3 style="color: darkslateblue;">Hauràs d'introduïr dos nombres i sel.leccionar l'operació que vulguis fer</h3>
+    <p>Primer numero<input type="number" id="numero1"></p>
+    <p> Segon numero<input type="number" id="numero2"></p>
+    <p><label for="operacion">Sel.lecciona l'operació desitjada</label>
+    <select id="operacion">
+        <option value="0" selected>Sel.lecciona</option>
+        <option value="1">Sumar</option>
+        <option value="2">Restar</option>
+        <option value="3">Multiplicar</option>
+        <option value="4">Dividir</option>
+        <option value="5">Mòdul</option>
+    </select>
+    <button onclick="operacioCalcular()">Clicka per operar</button>
+    <p id="resultat"></p>
+</head>
+<body style="background-color:darkkhaki ;">
+    <script>
+        
+            function suma(primerNumero, segonNumero) {
+                let resultat = 0;
+                resultat = primerNumero + segonNumero
+                return resultat;}
+            function resta(primerNumero, segonNumero) {
+                let resultat = 0;
+                resultat = primerNumero - segonNumero
+                return resultat;}
+            function multiplicacion(primerNumero, segonNumero) {
+                let resultat = 0;
+                resultat = primerNumero * segonNumero
+                return resultat;}
+            function division(primerNumero, segonNumero) {
+                let resultat = 0;
+                if (segonNumero === 0) {
+                    resultat = "No es pot dividir per zero";
+                } else {resultat = (primerNumero / segonNumero).toFixed(2);}
+                return resultat;}
+            function modulo(primerNumero, segonNumero) {
+                let resultat = 0;
+                resultat = primerNumero % segonNumero
+                return resultat;}
+            
+            
+
+            function operacioCalcular(){
+                let primerNumero = parseInt(document.getElementById("numero1").value);
+                console.log("El primer numero", primerNumero, typeof(primerNumero));
+                let segonNumero = parseInt(document.getElementById("numero2").value);
+                console.log("El segon numero", segonNumero, typeof(segonNumero));
+                let operando = parseInt(document.getElementById("operacion").value);
+                console.log("La operació es", operando);
+                let mensaje = " ";
+                let resultado = 0;
+                
+    
+
+            switch (operando){
+                case 1: resultado = suma(primerNumero, segonNumero); break;
+                case 2: resultado = resta(primerNumero, segonNumero); break;
+                case 3: resultado = multiplicacion(primerNumero, segonNumero); break;
+                case 4: resultado = division(primerNumero, segonNumero); break;
+                case 5: resultado =  modulo(primerNumero, segonNumero); break;
+                default: resultado = "Sel.lecciona quina opció";
+            } console.log("operacio", operando);
+            document.getElementById("resultat").innerHTML = "El resultat de la operació és:" + resultado;
+        }
+    
+    </script>
+</body>
+</html>

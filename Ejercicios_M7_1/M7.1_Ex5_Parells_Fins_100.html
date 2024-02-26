@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parells del 0 al 100</title>
+    <h4>Avui aprendrem els numeros parells entre 0 i 100</h4>
+    <h3>Però ho farem en ordre descendent</h3>
+    <button onclick="juguem()">Juguem?</button>
+    <p id="mensaje"></p>
+</head>
+<body>
+    <script>
+        //Mostra per pantalla els nombres parells compresos entre el 100 i el 0 en ordre descendent.
+        function juguem(){
+            let parells = " ";
+            let i = 0;
+            for (i = 100; i >= 0; i-=2){
+                parells += i + "<br>";
+                };
+            document.getElementById("mensaje").innerHTML = "Els següents numeros són els parells" + parells;
+        }
+        
+</script>
+</body>
+</html>

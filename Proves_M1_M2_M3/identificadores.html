@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="primer_nombre"></p>
+    <p id="calculo"></p>
+    <script>
+        "use strict";
+        //VARIABLES
+        let primerNombre = "Paco";              //string
+        console.log("primerNombre", primerNombre, typeof(primerNombre));
+        let segundoNombre;                      //la variable indica null, no tiene nada dentro
+        console.log("segundoNombre", segundoNombre, typeof(segundoNombre));
+        let apellido = "D'Onoffrio";            //string
+        console.log("apellido", apellido, typeof(apellido));
+        let segundoApellido = "";               //la variable indica null pero es de tipo string
+        console.log("segundoApellido", segundoApellido, typeof(segundoApellido));
+        let edad = 50;                          //number
+        console.log("edad", edad, typeof(edad));
+        let cita = '"Hakuna Matata", Disney';   //string
+        console.log("cita", cita, typeof(cita));
+        let sueldo = 1950.20                    //number
+        console.log("sueldo", sueldo, typeof(sueldo));
+        let tieneVehiculo = true;               //boolean
+        console.log("tieneVehiculo", tieneVehiculo, typeof(tieneVehiculo));
+        console.info("CAMBIO NOMBRE A LA VARIABLE primerNombre");
+        primerNombre = "Francisco";
+        console.log("primerNombre", primerNombre, typeof(primerNombre));
+        edad++;
+        //OPERACIONES
+        document.getElementById("primer_nombre").innerHTML = primerNombre;
+        document.getElementById("calculo").innerHTML = primerNombre + " dentro de 1 año tendrás " + (edad + 1) + " años ";
+        console.log("Expresión para mostrar 2 al cubo: ", 2**3);
+        console.log("Expresión para mostrar resto de 7 /2: (1) ", 7%2);
+        edad = edad - 2;
+        console.log("Francisco tenía ", edad , " años el año pasado.")
+
+    </script>
+
+
+
+</body>
+</html>

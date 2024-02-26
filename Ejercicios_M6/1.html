@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ipt>
+        // Calculadora arcaica. El programa demana a l’usuari/ària que introdueixi dos números i l’operació que desitja realitzar. 
+        let primerNumero = parseInt(document.getElementById("numero1").value);
+        console.log(primerNumero);
+        let segonNumero = parseInt(document.getElementById("numero2").value);
+        console.log(segonNumero);
+       // Cada operació (suma, resta, multiplicació, divisió i mòdul) estarà programada en una funció diferent.   
+        function operacioCalcular(operar){
+            let operacioMatematica = document.getElementById("operacion").value;
+            
+            let suma = function (sumar){
+                operacioMatematica.value = "1";
+                return primerNumero + segonNumero;
+
+            }
+            
+                operacioMatematica.value = "2";
+               
+            }
+            
+                operacioMatematica.value = "3";
+                
+            }
+            
+                operacioMatematica.value = "4";
+                
+            
+                operacioMatematica.value = "5";
+                
+            }
+        }
+    </script>
+</body>
+</html>

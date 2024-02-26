@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangles</title>
+    <h1>Jugarem als triangles</h1>
+    <h2>Introduiràs les mides dels costats i et diré quin tipus és</h2>
+    <p>Introdueix la mida del primer costat<input type="number" id="num1U"></p>
+    <p>Introdueix la mida del segon costat<input type="number" id="num2U"></p>
+    <p>Introdueix la mida del tercer costat<input type="number" id="num3U"></p>
+    <button onclick="triangle()">Aviam com és</button>
+    <p id="mensaje"></p>
+</head>
+<body>
+    <script>
+        /*Crea un mètode que ha de rebre com a paràmetres els costats d'un triangle. 
+        La funció ha de retornar un missatge indicant si el triangle és equilàter, 
+        isòsceles o escalè.*/
+        function tipusTriangle(costat1, costat2, costat3){
+            let resultado = "";
+            if (costat1 == costat2 && costat1 == costat3) {
+                resultado = "És equilàter";
+            } else if ((costat1 == costat2 && costat1 != costat3)||
+                (costat1 == costat3 && costat1 != costat2)||
+                (costat2 == costat3 && costat2 != costat1)){
+                resultado = "És isòsceles";
+            } else {
+                resultado = "És escalè "
+            }
+            return resultado;
+        }
+
+
+        function triangle(){
+            let primerCostat = Number(document.getElementById("num1U").value);
+            let segonCostat = Number(document.getElementById("num2U").value);
+            let tercerCostat = Number(document.getElementById("num3U").value);
+            document.getElementById("mensaje").innerHTML ="El tipus de triangle és " +
+            tipusTriangle(primerCostat, segonCostat, tercerCostat);
+        }
+
+
+    </script>
+</body>
+</html>

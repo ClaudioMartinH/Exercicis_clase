@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parells?</title>
+    <h1>Juguem als numeros parells</h1>
+    <h2>Hauràs d'introduïr un numero i et diré si és parell</h2>
+    <h3>Introdueix aquí el numero<input type="number" id="numero"></h3>
+    <button onclick="comprovar()">Clicka i comprovem</button>
+    <p id="mensaje"></p>
+</head>
+<body>
+    <script>
+        function esParell(num1){
+            let numeroParell = (num1 % 2 == 0) ? true : false;
+            return numeroParell;
+        }
+        function comprovar(){
+            let numeroUsuari = parseInt(document.getElementById("numero").value);
+            document.getElementById("mensaje").innerHTML = esParell(numeroUsuari);
+        }
+
+
+
+    </script>
+</body>
+</html>

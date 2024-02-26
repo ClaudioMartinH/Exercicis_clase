@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3MostrarDatos</title>
+</head>
+<body>
+    <h1>Introduce tus datos</h1>
+    <p>Nombre:      <input type="text" id="nombre"></p>
+    <p>Apellido:    <input type="text" id="apellido" ></p>
+    <p>Edad:        <input type="number" id="edad" ></p>
+    <hr>
+    <button onclick="confirmarDatos()">Enviar Datos</button>         
+    <p id="mensaje"></p>                                                        
+    <script>                                                                      
+        function confirmarDatos(){
+            let nombreUsuario = document.getElementById("nombre").value;
+            console.log('nombreUsuario', nombreUsuario, typeof(nombreUsuario));
+            let apellidoUsuario = document.getElementById("apellido").value;
+            console.log('apellidoUsuario', apellidoUsuario, typeof(apellidoUsuario));
+            let edadUsuario = parseInt(document.getElementById("edad").value);
+            console.log('edadUsuario', edadUsuario, typeof(edadUsuario)); 
+            let mensaje = '';
+            
+            mensaje = 'Hola usuario, te llamas ' + nombreUsuario + ' tu apellido es ' + apellidoUsuario +
+            ' y tienes ' + edadUsuario + ' años ';
+            document.getElementById('mensaje').innerHTML = mensaje;
+            console.log('mensaje', mensaje);
+            alert(mensaje);
+            
+        }
+
+
+    </script>
+    
+</body>
+</html>

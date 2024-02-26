@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any de traspàs</title>
+    <h1>Comprovem si l'any és de traspàs o no</h1>
+    <h3>introdueix un any i et diré si és de traspàs</h3>
+    <p>Introdueix l'any<input type="number" id="anyUsuari"></p>
+    <button onclick="anyTraspas()">Clicka per comprovar</button>
+</head>
+<body>
+    <script>
+        function anyTraspas(){
+            let numeroUsuari = parseInt(document.getElementById("anyUsuari").value);
+            let anyDeTraspas = (numeroUsuari % 400 == 0)||(numeroUsuari % 4 == 0 && numeroUsuari % 100 != 0) 
+            ? "És any de traspàs" 
+            : "No és any de traspàs";
+            return alert(anyDeTraspas);
+        }
+            /*if (numeroUsuari % 400 == 0){
+                alert("És any de traspàs");
+            } else if (numeroUsuari % 4 == 0 && numeroUsuari % 100 != 0){
+                alert("És any de traspàs");
+            } else { 
+                alert("No és any de traspàs");
+            }*/
+    </script>
+</body>
+</html>

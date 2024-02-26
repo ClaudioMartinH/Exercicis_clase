@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiples</title>
+    <h1>Juguem als numeros multiples</h1>
+    <h2>Hauras d'introduïr dos nombres i et diré</h2>
+    <h2>si el primer és multiple del segon</h2>
+    <h4>Introdueix el primer numero<input type="number" id="num1"></h4>
+    <h4>Introdueix el segon numero<input type="number" id="num2"></h4>
+    <button onclick="comprovem()">Clica per comprovar</button>
+    <p id="mensajes"></p>
+</head>
+<body>
+    <script>
+        /*Crea un programa que determini si un nombre és múltiple d’un altre. 
+        Per fer-ho crea una funció que ha de rebre els dos nombres per paràmetre i ha de retornar true, 
+        si el primer nombre introduït és múltiple del segon o false, si no ho és.*/
+        function numerosMultiples(numero1, numero2){
+            let resultat = numero1%numero2 === 0 ? true : false;
+            return resultat;
+        }
+        function comprovem(){
+            let numeroU = parseInt(document.getElementById("num1").value);
+            let numeroDos = parseInt(document.getElementById("num2").value);
+            document.getElementById("mensajes").innerHTML = "Són multiples els nombres introduïts? : " 
+            +  numerosMultiples(numeroU, numeroDos);
+
+
+        }
+
+    </script>
+</body>
+</html>

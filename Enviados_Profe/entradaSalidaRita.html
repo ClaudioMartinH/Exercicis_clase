@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada Salida de Datos</title>
+</head>
+<body>
+  <h1>Datos del Usuario</h1>
+  <p>Usuario:  <input type="text"   id="usuario" value="Rita"></p>
+  <p>Edad:     <input type="number" id="edad" value="50"></p><!--esto es un texto-->
+  <hr>
+  <button onclick="confirmarUsuario()">Confirmar Datos</button>
+  <p id="mensaje"></p>
+
+  <script>
+    function confirmarUsuario() {                                                 //VARIABLES
+      let nombreUsuario = document.getElementById("usuario").value;               //usamos value para leer de los inputs
+      let edadUsuario = parseInt(document.getElementById("edad").value);          //parseInt me permite convertir un valor numérico deL documento HTML
+      console.log('edadUsuario', edadUsuario, typeof(edadUsuario));               //en un número entero en JS. Si no se convierte lo asume como texto. 
+      let mensaje = '';
+      let datosCorrectos = '';
+      let confirmado = false;
+
+      //PROCEDIMIENTO
+      mensaje = 'Hola usuario. Te llamas ' + nombreUsuario + ' y tienes ' + edadUsuario + ' años';
+      console.log('mensaje: ', mensaje);
+      document.getElementById('mensaje').innerHTML = mensaje;
+      alert(mensaje);                                                             //alert muestra un cuadro de diálogo (popup) con una información.
+      datosCorrectos = prompt("¿Están estos datos correctos? (Sí/No)", "Sí");     //muestra un popup con una pregunta y guarda la respuesta en una variable string
+      console.log('datosCorrectos', datosCorrectos);
+      confirmado = confirm("¿Guardar los valores en la BBDD?");                    //muestra un popup con una pregunta y guarda la respuesta en una variable boolean
+      console.log('confirmado', confirmado);
+      
+    }
+
+  </script>
+
+</body>
+</html>

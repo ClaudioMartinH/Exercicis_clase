@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carrusel</title>
+    <link href="./css_carrousel/estilos.css" rel="stylesheet">
+</head>
+
+<body>
+    <body onload="mostrarImagen()"></body>
+    <div id="container">
+        <h1>CARRUSEL DE IMAGENES</h1>
+        <p><img id="imagen"></p>
+        <p> <button id="retroceder" onclick="retrocede()">Retroceder</button>
+            <span id="nombreImagen"></span>
+            <button id="avanzar" onclick="avanza()">Avanzar</button>
+        </p>
+    </div>
+
+    <script>
+        const RUTA = "./imagenes_carrousel/";
+        const imagenes = [
+            'vr2001.jpg', //0
+            'vr2015.jpg', //1
+            'vr2016.jpg', //2
+            'vr2017.jpg', //3   
+            'vr2018.jpg', //4
+        ];
+		let posicion = 0;
+            function avanza(){
+                posicion++;
+                if (posicion >= imagenes.length){
+                alert("Es la última imagen");
+                posicion--;
+                }
+            mostrarImagen()
+            }
+            function retrocede(){
+                posicion--;
+                if (posicion <= imagenes.length){
+                alert("Es la primera imagen");
+                posicion++;
+                }
+            mostrarImagen()
+            }
+            function mostrarImagen(){
+                let imagen = RUTA + imagenes[posicion];
+                document.getElementById("imagen").src = imagen;
+                document.getElementById("nombreImagen").innerHTML = imagen; 
+            }
+            
+    </script>
+</body>
+
+</html>
+

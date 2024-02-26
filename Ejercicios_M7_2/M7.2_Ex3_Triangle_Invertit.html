@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibuixar triangle invertit</title>
+    <p>Introdueix la mida que vols que tingui el triangle<input type="number" id="numeroU"></p>
+    <button onclick="dibuixaTriangleInvertit()">Clicka per dibuixar</button>
+    <p id="missatge"></p>
+</head>
+<body>
+    <script>
+        function dibuixaTriangleInvertit(){
+            let mesuraUsuari = parseInt(document.getElementById("numeroU").value);
+            console.log(mesuraUsuari);
+            let simbolDibuix = "*";
+            let missatge = " ";
+            let areaTriangle = "";
+            let i = 0;
+            let j = 0;
+                for (i = mesuraUsuari; i >= 0; i--){
+                    for (j = 1; j <= i; j++){
+                        areaTriangle += simbolDibuix + " ";
+                        }; 
+                areaTriangle += "<br>";
+                };
+                
+            document.getElementById("missatge").innerHTML = areaTriangle;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="background-color: brown; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Calculadora arcaica</title>
+    <h1 style="color: darkblue; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Juguem a les operacions matemàtiques</h1>
+    <h3 style="color: darkslateblue;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Hauràs d'introduïr dos nombres i sel.leccionar l'operació que vulguis fer</h3>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Primer numero<input type="number" id="numero1"></p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> Segon numero<input type="number" id="numero2"></p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"><label for="operacion">Sel.lecciona l'operació desitjada</label>
+    <select id="operacion" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <option value="0" selected>Sel.lecciona</option>
+        <option value="1">Sumar</option>
+        <option value="2">Restar</option>
+        <option value="3">Multiplicar</option>
+        <option value="4">Dividir</option>
+        <option value="5">Mòdul</option>
+    </select>
+    <button style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" onclick="operacioCalcular()">Clicka per operar</button>
+    <p id="resultat" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"></p>
+</head>
+<body style="background-color:darkkhaki ;">
+    <script>
+        function operacioCalcular(){
+            let primerNumero = parseInt(document.getElementById("numero1").value);
+            let segonNumero = parseInt(document.getElementById("numero2").value);
+            let operando = parseInt(document.getElementById("operacion").value);
+
+            function suma(a, b){return primerNumero + segonNumero;}
+            console.log(suma);
+            const sumando = suma();
+            function resta(a, b){return primerNumero - segonNumero;}
+            console.log(resta);
+            const restando = resta();
+            function multiplicacion(a, b){return primerNumero * segonNumero;}
+            console.log(multiplicacion);
+            const multiplicando = multiplicacion();
+            function division(a, b){return primerNumero / segonNumero;}
+            console.log(division);
+            const dividiendo = division();
+            function modulo(a, b){return primerNumero % segonNumero;}
+            console.log(modulo);
+            const modulando = modulo();
+            let mensaje = "El resultat és: ";
+
+            switch (operando){
+                case 1: document.getElementById("resultat").innerHTML = mensaje + suma(); break;
+                case 2: document.getElementById("resultat").innerHTML = mensaje + resta(); break;
+                case 3: document.getElementById("resultat").innerHTML = mensaje + multiplicacion(); break;
+                case 4: document.getElementById("resultat").innerHTML = mensaje + division(); break;
+                case 5: document.getElementById("resultat").innerHTML = mensaje + modulo(); break;
+                default: document.getElementById("resultat").innerHTML = "Selecciona quina opció";
+            }
+        }
+    
+    </script>
+</body>
+</html>

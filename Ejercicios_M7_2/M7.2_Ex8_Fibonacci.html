@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Succesió Fibonacci</title>
+<h1>Jugarem a la succesió de Fibonacci</h1>
+<h3>Introduiràs un numero i et faré la seva succesió</h3>
+<p>Introdueix el numero que vulgis<input type="number" id="numeroU"></p>
+<button onclick="succesioFibonacci()">Clicka per jugar</button>
+<p id="mensaje"></p>
+</head>
+<body>
+    <script>
+        function succesioFibonacci(){
+            const ARRAY_FIBONACCI = [0, 1];                                                  //iniciem amb 0 i 1 que son les 2 primeres posicions fixes
+            let numeroUsuari = parseInt(document.getElementById("numeroU").value);          //demanem el numero
+            let i = 0;                                                              
+            if (numeroUsuari >= 3 ){                                                        //perque funcioni el numero ha de ser mes gran de 2 i positiu
+                for (i = 2 ; i < numeroUsuari; i++){                                        // bucle for per anar sumant elements a l'array
+                ARRAY_FIBONACCI[i] = ARRAY_FIBONACCI[i - 1] +  ARRAY_FIBONACCI[i - 2];     //la posició i es igual a la suma de les 2 posicions anteriors
+                    console.log(ARRAY_FIBONACCI);                                            //imprimim en consola
+                    document.getElementById("mensaje").innerHTML = ARRAY_FIBONACCI;          //imprimim en pantalla
+                } 
+                return  ARRAY_FIBONACCI[numeroUsuari];
+            } else { alert("Introdueix un numero positiu major de 2");}    
+        }
+    </script>
+</body>
+</html>

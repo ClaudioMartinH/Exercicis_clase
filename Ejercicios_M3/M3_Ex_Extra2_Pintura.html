@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Pintura</title>
+</head>
+<body>
+    <p>Indica el alto de la pared <input type="number" id="altoPared" ></p>
+    <p>Indica el ancho de la pared <input type="number" id="anchoPared" ></p>
+    <p>Indica el número de capas a aplicar en la pared <input type="number" id="numeroCapas" ></p>
+    <hr>
+    <button onclick="calcularLitros()">Cálculo de pintura</button>
+    <hr>
+    <p id="mensaje"></p>
+    <script>
+        function calcularLitros(){
+            const COBERTURA = 12;
+            let altoPared = parseFloat(document.getElementById("altoPared").value);
+            console.log('Alto de la pared', altoPared, typeof(altoPared));
+            let anchoPared = parseFloat(document.getElementById("anchoPared").value);
+            console.log('Ancho de la pared', anchoPared, typeof(anchoPared));
+            let numeroCapas = parseFloat(document.getElementById("numeroCapas").value);
+            console.log('Número de capas', numeroCapas, typeof(numeroCapas));
+            let areaPared = (altoPared * anchoPared);
+            console.log('Área de la pared', areaPared, typeof(areaPared));
+            let litrosPintura = ((areaPared / COBERTURA)* numeroCapas).toFixed(2);
+            console.log('Litros de pintura', litrosPintura, typeof(litrosPintura));
+            let mensaje = '';
+            
+            mensaje = "Para pintar tu pared vas a necesitar " + litrosPintura + " litros de pintura";
+            document.getElementById("mensaje").innerHTML = mensaje;
+            console.log('mensaje', mensaje);
+            alert(mensaje);
+        }
+
+    </script>
+</body>
+</html>

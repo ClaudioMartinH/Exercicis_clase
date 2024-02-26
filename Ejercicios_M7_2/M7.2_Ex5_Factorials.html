@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorials</title>
+</head>
+<body>
+    <h2>Juguem als factorials</h2>
+    <p>Introdueix el numero i et retorno el factorial <input type="number" id="numUsuari"></p>
+    <button onclick="factorial()">Clicka aqui</button>
+    <p id="mensaje"></p>
+    <script>
+
+        function factorial(){
+            let numeroUsuari = parseInt(document.getElementById("numUsuari").value);
+            let i = 0;
+            let resultat = 1;
+            if (numeroUsuari > 0){
+                for (i = 1; i <= numeroUsuari; i++){
+                    resultat *= i;
+                    console.log(resultat);
+                } document.getElementById("mensaje").innerHTML = resultat;
+            } else {
+                document.getElementById("mensaje").innerHTML = "Introdueix un numero positiu "
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

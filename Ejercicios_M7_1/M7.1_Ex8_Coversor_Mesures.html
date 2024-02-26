@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor mesures</title>
+    <h1>Convertirem la mesura que ens introdueixis</h1>
+    <p>Introdueix la mesura a convertir<input type="number" id="numUsuari"></p>
+    <p><label for="conversio">Sel.lecciona la opció que necessitis</label>
+        <select id="conversio">
+           <option value="0" selected>Sel.lecciona una opció</option>
+           <option value="1">Metres a Peus</option>
+           <option value="2">Peus a Metres</option>
+           <option value="3">Metres a Iardes</option>
+           <option value="4">Iardes a Metres</option>
+        </select>
+     </p>
+     <button onclick="convertirUnitats()">Converteix!</button>
+     <p id="mensaje"></p>
+</head>
+<body>
+    <script>
+        function metreAPeus(num1){
+            const metrePeu = 3.28;      //va todo en mayusculas
+            return (num1 * metrePeu).toFixed(2);
+        }
+        function peusAMetre(num1){
+            const peuMetre = 0.30;
+            return (num1 * peuMetre).toFixed(2);
+        }
+        function metreAIardes(num1){
+            const metreIarda = 1.09;
+            return (num1 * metreIarda).toFixed(2);
+        }
+        function iardaAMetres(num1){
+            const iardaMetre = 0.91;
+            return (num1 * iardaMetre).toFixed(2);
+        }
+        function convertirUnitats() {
+            let conversioDesitjada = parseInt(document.getElementById("conversio").value);
+            let numeroUsuari = parseInt(document.getElementById("numUsuari").value);
+            let resultat = " ";
+            switch (conversioDesitjada){
+                case 0: resultat = "Sel.lecciona una opció, si us plau";
+                document.getElementById("mensaje").innerHTML = resultat;
+                break;
+                case 1: metreAPeus(numeroUsuari);
+                resultat = numeroUsuari + " metres són " + metreAPeus(numeroUsuari) + " peus ";
+                document.getElementById("mensaje").innerHTML = resultat;
+                break;
+                case 2: peusAMetre(numeroUsuari);
+                resultat = numeroUsuari + " peus són " + peusAMetre(numeroUsuari) + " metres ";
+                document.getElementById("mensaje").innerHTML = resultat;
+                break;
+                case 3: metreAIardes(numeroUsuari);
+                resultat = numeroUsuari + " metres són " + metreAIardes(numeroUsuari) + " iardes ";
+                document.getElementById("mensaje").innerHTML = resultat;
+                break;
+                case 4: iardaAMetres(numeroUsuari);
+                resultat = numeroUsuari + " iardes són " + iardaAMetres(numeroUsuari) + " metres ";
+                document.getElementById("mensaje").innerHTML = resultat;
+                break;
+                default : resultat = "Error";
+                document.getElementById("mensaje").innerHTML = resultat;
+                break;
+                
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibuixem un quadrat</title>
+    <h1>Hauràs de dir el tamany i el simbol per dibuixar-lo</h1>
+    <h4>Introdueix la mesura del quadrat<input type="number" id="numeroUs"></h4>
+    <h4>Introdueix el simbol amb el que el vols dibuixar<input type="text" id="simbolUs"></h4>
+    <button onclick="dibuixaQuadrat()">Dibuixem!!!</button>
+    <p id="missatge"></p>
+</head>
+<body>
+    <script>
+        
+        function dibuixaQuadrat(){
+            let mesuraUsuari = parseInt(document.getElementById("numeroUs").value);
+            console.log(mesuraUsuari);
+            let simbolUsuari = document.getElementById("simbolUs").value;
+            console.log(simbolUsuari);
+            let missatge = " ";
+            let areaQuadrat = "";
+            let i = 0;
+            let j = 0;
+                for (i = 0; i <= mesuraUsuari; i++){
+                    for (j = 0; j <= mesuraUsuari; j++){
+                        areaQuadrat += simbolUsuari + " ";
+                    }; 
+                areaQuadrat += "<br>";
+                }; 
+            document.getElementById("missatge").innerHTML = areaQuadrat;
+        }
+    </script>
+</body>
+</html>

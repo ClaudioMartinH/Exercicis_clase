@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taula de multiplicar</title>
+    <h1>Benvinguts a les taules de multiplicar</h1>
+    <h4>Hauràs d'introduïr un numero del 1 al 10 i et donaré la taula corresponent</h4>
+    <p>Introdueix el numero<input type="number" id="numeroU"></p>
+    <button onclick="multiplicadora()">Click per començar</button>
+    <p id="missatge"></p>
+</head>
+<body>
+    <script>
+        function multiplicadora(){
+            
+            let numeroUsuari = parseInt(document.getElementById("numeroU").value);
+            let i = 0;
+            let resultatMultiplicar = 0;
+            let taulaMultiplicar = " ";
+
+            if (numeroUsuari <= 10 && numeroUsuari >=1){   
+                for (i = 0; i <= 10; i++){
+                    resultatMultiplicar = numeroUsuari * i;
+                    taulaMultiplicar += numeroUsuari + " x " + i + " = " + resultatMultiplicar + "<br>";  
+                } 
+                document.getElementById("missatge").innerHTML = taulaMultiplicar;
+            } else {
+                document.getElementById("missatge").innerHTML = "introdueix un numero entre 1 i 10, si us plau" ;
+            }
+        }
+    </script>
+</body>
+</html>

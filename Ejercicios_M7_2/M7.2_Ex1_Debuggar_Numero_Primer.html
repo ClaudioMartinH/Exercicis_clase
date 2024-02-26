@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset='utf-8'>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numeros primers</title>
+    </head>
+<body>
+<p>Introdueix un número i et diré si es primer o no</p>
+<button onclick="comprovaNumero()">Click per comprovar</button>
+<script>
+    function comprovaNumero() {
+        let numeroPrimer = true;
+        let numeroUsuari = Number(prompt("Escull un numero: "));
+        
+        if (numeroUsuari > 1) {
+            console.log(numeroUsuari);
+            numeroPrimer = esPrimer(numeroUsuari);
+            console.log(numeroPrimer);
+        }
+        alert(numeroPrimer);
+    }
+    
+    
+    function esPrimer(numUsuari) {
+        let numPrimer = true;
+        let i = 2;
+        
+        while (numPrimer && i < numUsuari) {
+            if (numUsuari % i == 0) {
+                numPrimer = false;
+            }  
+            i++;
+            console.log(i);
+        }
+        return numPrimer;
+    }
+    
+
+</script>
+
+</body>
+</html>

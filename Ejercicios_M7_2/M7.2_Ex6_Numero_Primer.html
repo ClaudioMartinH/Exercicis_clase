@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numeros primers</title>
+    <h1>Juguem als numero primers</h1>
+    <h3>Hauràs d'introduir numeros fins trobar un de primer</h3>
+    <button onclick="comprovarNumero()">Clicka per jugar</button>
+</head>
+
+<body>
+    <script>
+        function comprovarNumero(numeroIntroduit) {
+            var primer = " No és primer ";
+            var numeroIntroduit = prompt("Introdueix un número: ");
+
+            if (numeroIntroduit >= 1) {
+                primer = esPrimer(numeroIntroduit);
+                alert(primer);
+                while (primer === " No és primer ") {
+                    numeroIntroduit = prompt("Introdueix un altre numero");
+                    primer = esPrimer(numeroIntroduit);
+                    alert(primer);
+                } return primer;
+            } else {
+                alert( numeroIntroduit + " No es pot comprovar, prova un numero positiu major de zero: ");
+                    numeroIntroduit = prompt("Introdueix un altre numero");
+                    primer = esPrimer(numeroIntroduit);
+                    alert(primer);
+            }
+        }
+
+        function esPrimer(numUsuari) {
+            let primer = " És primer ";
+            let i = 2;
+
+            while (primer && i < numUsuari) {
+                if (numUsuari % i == 0) {
+                    primer = " No és primer ";
+                }
+                i++;
+            }
+            return primer;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<h1>Benvinguts</h1>
+<h2>Aquesta és la calculadora de notes</h2>
+<body>
+    <p style="background-color: brown;">Introdueix la primera nota<input type="number" id="num1"></p>
+    <p style="background-color: cadetblue;">Introdueix la segona nota<input type="number" id="num2"></p>
+    <p style="background-color: coral;">Introdueix la tercera nota<input type="number" id="num3"></p>
+    <p id="notaPromig" style="background-color: darksalmon;">El teu promig es:</p>
+
+    <p><input type="button" value="Calcula el teu promig" onclick="CalcularNota()"></p>
+
+</body>
+<script>
+    function CalcularNota(){
+        let nota1 = document.getElementById("num1").value;
+        let nota2 = document.getElementById("num2").value;
+        let nota3 = document.getElementById("num3").value;
+        let promig = (parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3)) / 3;
+        document.getElementById("notaPromig").innerHTML = promig;
+        let mensaje = '';
+        let hasAprovat = '';
+       
+        mensaje = 'Hola, la teva nota promig es ' + promig + ' felicitats!';
+        console.log('mensaje: ', mensaje);
+        alert(mensaje);
+        hasAprovat = prompt("Creus que has aprovat? (Sí/No)", "Sí"); 
+        console.log('hasAprovat', hasAprovat);
+
+       
+    }    
+</script>
+</html>
