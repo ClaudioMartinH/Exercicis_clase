@@ -20,7 +20,7 @@
                 for (i = 2 ; i < numeroUsuari; i++){                                        // bucle for per anar sumant elements a l'array
                 ARRAY_FIBONACCI[i] = ARRAY_FIBONACCI[i - 1] +  ARRAY_FIBONACCI[i - 2];     //la posició i es igual a la suma de les 2 posicions anteriors
                     console.log(ARRAY_FIBONACCI);                                            //imprimim en consola
-                    document.getElementById("mensaje").innerHTML = ARRAY_FIBONACCI;          //imprimim en pantalla
+                    document.getElementById("mensaje").innerHTML = ARRAY_FIBONACCI.join(", ");          //imprimim en pantalla
                 } 
                 return  ARRAY_FIBONACCI[numeroUsuari];
             } else { alert("Introdueix un numero positiu major de 2");}    

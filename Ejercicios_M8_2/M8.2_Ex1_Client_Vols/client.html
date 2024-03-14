@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLIENTS</title>
+  </head>
+  <details
+    style="
+      font-size: medium;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background: rgb(206, 133, 107);
+    "
+  >
+    Fes un programa que tingui una classe anomenada Client.<br />
+
+    Aquesta classe Client tindrà com a atributs el DNI, l'edat, la nacionalitat
+    i nombre de vols agafats.<br />
+
+    A més del constructor, la classe Client ha de disposar dels següents
+    mètodes: <br />
+
+    1. mètodes que permetin consultar i modificar cadascun dels atributs.<br />
+    2. un mètode que calcula la petjada de carboni (multiplicant els viatges per
+    0,5 tones de CO₂).<br />
+    3. un mètode que retornarà una descripció completa del client
+    (toString()).<br />
+    4. Crea dos clients i comprova que els mètodes creats funcionen
+    correctament.<br />
+    És a dir, crida a tots els mètodes dels dos clients.<br />
+
+    Recordeu que cada classe s'ha de guardar en un fitxer diferent i enllaçar-se
+    apropiadament a l'html.
+  </details>
+  <header
+    id="menu"
+    style="background-color: rgb(50, 50, 139); align-content: flex-start"
+  >
+    <h1 style="font-family: fantasy">
+      Programa para agregar clientes y modificar sus datos
+    </h1>
+    <p>
+      <button onclick="agregarCliente()">AGREGAR CLIENTE</button>
+      <button onclick="eliminarCliente()">ELIMINAR CLIENTE</button>
+      <button onclick="modificarDatos()">MODIFICAR DATOS</button>
+      <button onclick="consultarDatos()">CONSULTAR DATOS</button>
+      <button onclick="salir()">SALIR</button>
+    </p>
+  </header>
+
+  <body style="background-color: darkcyan">
+    <p id="txt"></p>
+    <script src="./js/claseClient.js"></script>
+    <script src="./js/clients.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      
+    </script>
+  </body>
+</html>

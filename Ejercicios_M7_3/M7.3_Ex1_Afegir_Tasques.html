@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afegir tasques</title>
+    <h2>Benvinguts al meu TO-DO List</h2>
+    <p>
+      <label for="accio">Selecciona el que vols fer</label>
+      <select id="accio">
+        <option value="0" selected>Sel.lecciona una opció</option>
+        <option value="1">Crear tasca</option>
+        <option value="2">Mostar tasques pendents</option>
+        <option value="3">Eliminar tasca</option>
+        <option value="4">Sortir</option>
+      </select>
+      <button onclick="modificaTasques()">Clicka aqui per començar</button>
+    </p>
+
+    <p id="txt"></p>
+  </head>
+
+  <body>
+    <script>
+      "use strict;"
+      let tasques = [];
+
+      function creaTasca() {
+        let novaTasca = prompt("Introdueix una nova tasca");
+        tasques.push(novaTasca);
+        //tasquesPendents();
+        console.log(tasques);
+      }
+
+      function tasquesPendents() {
+        let tasquesPdts = "Les tasques pendents són: <br>";
+        let i = 1;
+
+        for (let valor of tasques) {
+          tasquesPdts += i + " " + valor + "<br>";
+          i++;
+        }
+        console.log(tasques);
+        document.getElementById("txt").innerHTML = tasquesPdts + "<br>";
+        return tasques;
+      }
+
+      function eliminaTasca() {
+        let tascaEliminada = parseInt(
+          prompt(" Digues el numero de tasca que vols eliminar ")
+        );
+
+        while (
+          tascaEliminada === "" ||
+          isNaN(tascaEliminada) ||
+          tascaEliminada == null ||
+          tascaEliminada == 0 ||
+          tascaEliminada > tasques.length
+        ) {
+          tascaEliminada = parseInt(
+            prompt(" Valor equivocat, torna a introduïr un valor correcte ")
+          );
+        }
+        let tascaEliminadaArray = tascaEliminada - 1;
+
+        tasques.splice(tascaEliminadaArray, 1);
+        console.log(tasques);
+        tasquesPendents();
+
+        return tasques;
+      }
+
+      function sortir() {
+        window.close();
+      }
+
+      function modificaTasques() {
+        let opcioSeleccionada = parseInt(
+          document.getElementById("accio").value
+        );
+
+        switch (opcioSeleccionada) {
+          case 1:
+            creaTasca();
+            break;
+          case 2:
+            tasquesPendents();
+            break;
+          case 3:
+            eliminaTasca();
+            break;
+          case 4:
+            sortir();
+            break;
+          default:
+            alert("Sel.lecciona una opció");
+           
+        }
+      }
+    </script>
+  </body>
+</html>

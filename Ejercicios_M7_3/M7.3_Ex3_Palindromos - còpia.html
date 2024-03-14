@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindroms</title>
+    <h1>Comprovem si la frase introduïda és un palidrom</h1>
+    <h3></h3>
+    <p>Introdueix aqui la frase a comprovar<input type="text" id="texto" /></p>
+    <button onclick="comprovarPalindrom()">Clica per comprovar</button>
+    <p id="txt"></p>
+</head>
+
+<body>
+    <script>
+        function comprovarPalindrom() {
+            let fraseUsuari = document.getElementById("texto").value.toLowerCase();
+            console.log("frase usuari: ", fraseUsuari);
+
+            let fraseUsuariPas1 = netejarText(fraseUsuari);
+            let fraseUsuariPas2 = netejarVocals(fraseUsuariPas1);
+            let fraseUsuariPas3 = voltejarFrase(fraseUsuariPas2);
+            let fraseUsuariPas4 = comprovarFrase(fraseUsuariPas3, fraseUsuariPas2);
+
+            document.getElementById("txt").innerHTML =
+                "La frase " +
+                fraseUsuari +
+                ", " +
+                fraseUsuariPas4 +
+                " és un palindrom ";
+        }
+
+        function netejarText(text) {
+            let textNet = "";
+
+            if (text.includes(",")) {
+                textNet = text.replace(/,/g, ""); //perque el replace pesqui el primer valor posaries ","
+            } //perque el replace pesqui tots els valors i no nomes el primer posaries /,/g la g vol dir global en tot string (expressio regular)
+            if (textNet.includes(".")) {
+                //per fer un replace global que em tregui ",. " provar de fer un sol replace amb un sol includes, al qual li passare regExp /,. /g
+                textNet = textNet.replace(/./g, "");
+            }
+            if (textNet.includes(" ")) {
+                textNet = textNet.replace(/ /g, ""); //aqui el replace em fa un bucle, es un for
+            }
+            console.log("Netejar text: ", textNet);
+            return textNet;
+        }
+
+        function netejarVocals(text) {
+            let textNet = "";
+            let vocalsA = /[áàâä]/g; //introducimos posibles variantes de vocalA  --- la regExp = /áàâä/g
+            let vocalsE = /[éèêë]/g; //introducimos posibles variantes de vocalE             "
+            let vocalsI = /[íìîï]/g; //introducimos posibles variantes de vocalI             "
+            let vocalsO = /[óòôö]/g; //introducimos posibles variantes de vocalO             "
+            let vocalsU = /[úùûü]/g; //introducimos posibles variantes de vocalU             "
+
+            
+            if (vocalsA.test(text)) {
+                textNet = text.replace(vocalsA, "a");
+            }
+            if (vocalsE.test(textNet)) {
+                textNet = textNet.replace(vocalsE, "e");
+            }
+            if (vocalsI.test(textNet)) {
+                textNet = textNet.replace(vocalsI, "i");
+            }
+            if (vocalsO.test(textNet)) {
+                textNet = textNet.replace(vocalsO, "o");
+            }
+            if (vocalsU.test(textNet)) {
+                textNet = textNet.replace(vocalsU, "u");
+            }
+            console.log("Netejar vocals: ", textNet);
+            return textNet;
+        }
+
+        function voltejarFrase(text) {
+            let fraseVoltejada = ""; //inicializamos fraseVoltejada vacía
+            let longitutFrase = text.length; //inicializamos la longituFrase en 0
+            let i = 0;
+
+            for (i = longitutFrase; i > 0; i--) {
+                fraseVoltejada += text.charAt(i - 1);
+            }
+            console.log("voltejarFrase", fraseVoltejada);
+            return fraseVoltejada;
+        }
+
+        function comprovarFrase(text1, text2) {
+            let resposta = "";
+            if (text1 != text2) {
+                resposta = " No ";
+            } else {
+                resposta = " Si ";
+            }
+            console.log("comprovarFrase", resposta);
+            return resposta;
+        }
+    </script>
+</body>
+
+</html>

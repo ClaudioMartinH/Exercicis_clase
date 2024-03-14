@@ -12,14 +12,14 @@
 
 <body>
     <script>
-        function comprovarNumero(numeroIntroduit) {
-            var primer = " No és primer ";
-            var numeroIntroduit = prompt("Introdueix un número: ");
+        function comprovarNumero() {
+            let primer = false;
+            let numeroIntroduit = prompt("Introdueix un número: ");
 
             if (numeroIntroduit >= 1) {
                 primer = esPrimer(numeroIntroduit);
                 alert(primer);
-                while (primer === " No és primer ") {
+                while (primer === false) {
                     numeroIntroduit = prompt("Introdueix un altre numero");
                     primer = esPrimer(numeroIntroduit);
                     alert(primer);
@@ -33,12 +33,12 @@
         }
 
         function esPrimer(numUsuari) {
-            let primer = " És primer ";
+            let primer = true;
             let i = 2;
 
             while (primer && i < numUsuari) {
                 if (numUsuari % i == 0) {
-                    primer = " No és primer ";
+                    primer = false;
                 }
                 i++;
             }

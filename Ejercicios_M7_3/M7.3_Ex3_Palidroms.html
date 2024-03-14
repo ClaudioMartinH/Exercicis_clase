@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindroms</title>
+    <h1>Comprovem si la frase introduïda és un palidrom</h1>
+    <h3></h3>
+    <p>Introdueix aqui la frase a comprovar<input type="text" id="texto" /></p>
+    <button onclick="comprovarPalindrom()">Clica per comprovar</button>
+    <p id="txt"></p>
+</head>
+
+<body>
+    <script>
+        function comprovarPalindrom() {
+            let simbolsPuntuacio = " ,.+-/*?¿!¡;:_";    //introducimos los posibles  caracteres espaciales como espacios, etc
+            let vocalsA = "áàâä";                       //introducimos posibles variantes de vocalA
+            let vocalsE = "éèêë";                       //introducimos posibles variantes de vocalE
+            let vocalsI = "íìîï";                       //introducimos posibles variantes de vocalI
+            let vocalsO = "óòôö";                       //introducimos posibles variantes de vocalO
+            let vocalsU = "úùûü";                       //introducimos posibles variantes de vocalU
+            let paraulaFiltrada = "";
+            let paraulaGirada = "";
+            let caracter = "";
+            let fraseUsuari = document.getElementById("texto").value.toLowerCase();
+            let i = 0;
+            console.log(fraseUsuari, caracter);
+
+            for (i = 0; i < fraseUsuari.length; i++) {
+                caracter = fraseUsuari[i];
+
+                if (vocalsA.includes(caracter)) {
+                    caracter = "a";
+                }
+                if (vocalsE.includes(caracter)) {
+                    caracter = "e";
+                }
+                if (vocalsI.includes(caracter)) {
+                    caracter = "i";
+                }
+                if (vocalsO.includes(caracter)) {
+                    caracter = "o";
+                }
+                if (vocalsU.includes(caracter)) {
+                    caracter = "u";
+                }
+                if (simbolsPuntuacio.includes(caracter)) {
+                    caracter = "";
+                }
+                paraulaFiltrada += caracter;
+                
+            }
+            
+            for (i = paraulaFiltrada.length; i > 0; i--) {
+                paraulaGirada += paraulaFiltrada[i-1];
+                console.log(paraulaGirada);
+            }
+
+            if (paraulaGirada != paraulaFiltrada) {
+                document.getElementById("txt").innerHTML =
+                    "La frase introduida no és un palindrom";
+            } else {
+                document.getElementById("txt").innerHTML =
+                    "La frase introduida  és un palindrom";
+            }
+        }
+
+    
+    </script>
+</body>
+
+</html>

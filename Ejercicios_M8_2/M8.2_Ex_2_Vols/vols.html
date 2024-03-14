@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLS</title>
+</head>
+<body background="https://www.truecalia.com/blog/wp-content/uploads/PORTADA.jpg">
+  <details style="background-color: yellowgreen;">
+    Fes un programa que permeti donar d'alta, modificar, veure i eliminar vols. <br>
+    La classe vol ha de tenir els atributs: número de vol, distància (en km),  <br>
+    companyia, nombre de passatgers, nombre de motors. També haurà de contenir <br>
+    un constructor complet i els getters i setters necessaris. A més, ha de tenir <br>
+    un mètode calculaPetjadaCarboni() que ha de calcular el CO₂ emès per l'avió <br>
+    tenint en compte que cada motor allibera 0,1 tones de CO₂ cada 1000 km de <br>
+    distància.<br>
+
+Les funcionalitats del programa són les següents:<br>
+
+La funció crearVol() ha de rebre les dades per crear un vol i afegir-lo a un array de vols.<br>
+La funció donarDeBaixaVol() ha de rebre el número de vol a donar de baixa. Si el vol està dintre<br>
+ de l'array, l'eliminarem i mostrarem un missatge informatiu per pantalla, si no, avisarem per <br>
+ pantalla que el vol no es troba a la nostra aplicació.<br>
+La funció veureVol() ha de rebre el número de vol a mostrar. Si el vol està dintre de l'array, <br>
+mostrarem tots els seus atributs i també cridarem al mètode calculaPetjadaCarboni(), si no, <br>
+avisarem per pantalla que el vol no es troba a la nostra aplicació.<br>
+La funció modificarVol() ha de rebre el número de vol a modificar. Si el vol està dintre de <br>
+l'array, demanarem quin atribut es vol modificar, farem la modificació pertinent i mostrarem un <br>
+missatge informatiu per pantalla. Si no, avisarem per pantalla que el vol no es troba a la nostra <br>
+aplicació.
+
+  </details>
+  <div style="background-color: mediumseagreen;">
+    <button onclick="crearVol()">NOU VOL</button>
+    <button onclick="modificarVol()">MODIFICAR VOL</button>
+    <button onclick="donarDeBaixaVol()">ELIMINAR VOL</button>
+    <button onclick="veureVol()">CONSULTAR DADES VOL</button>
+  </div>
+    <script src="./js/claseVols.js"></script>
+    <script src="./js/vols.js"></script>
+    <script src="./js/crud.js"></script>
+
+</body>
+</html>

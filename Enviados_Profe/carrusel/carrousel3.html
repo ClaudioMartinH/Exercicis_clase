@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carrusel</title>
+    <link href="./css_carrousel/estilos.css" rel="stylesheet" />
+  </head>
+  <header id="menu" style="background-color: rgb(50, 50, 139);">
+    <p>
+    <button class="btn_menu" onclick="agregarImagen()">AGREGAR</button>
+    <button class="btn_menu" onclick="eliminarImagen()">ELIMINAR</button>
+    <button class="btn_menu" onclick="modificarImagen()">MODIFICAR DATOS</button>
+    <button class="btn_menu" onclick="salir()">SALIR</button>
+    </p>
+  </header>
+
+  <body>
+    
+  <body onload="mostrarImagen()"></body>
+    <div id="container">
+      <h1>CARRUSEL DE IMAGENES</h1>
+      <p>
+        <img
+          id="imagen"
+          title="Valentino 2001"
+          alt="Victoria de Valentino con la moto 2T"
+          src="./imagenes_carrousel/vr2001.jpg"
+        />
+      </p>
+      <p>
+        <button id="retroceder" onclick="retrocede()">Retroceder</button>
+        <span id="nombreImagen"></span>
+        <button id="avanzar" onclick="avanza()">Avanzar</button>
+      </p>
+      <p id="descripcionImagen"></p>
+    </div>
+    <script src="./js/claseImagen.js"></script>
+    <script src="./js/imagenes.js "></script>
+    <script src="./js/carrousel.js"></script>
+    <script src="./js/crud.js"></script>
+  </body>
+</html>

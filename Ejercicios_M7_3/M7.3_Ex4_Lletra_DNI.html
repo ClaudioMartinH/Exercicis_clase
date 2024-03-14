@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lletra DNI</title>
+    <h4>Introdueix un numero de DNI i et diré si la lletra és correcta</h4>
+    <p>Introdueix el numero a comprovar<input type="number" id="numero1" /></p>
+    <p>Introdueix la lletra comprovar<input type="text" id="letraUsuario" /></p>
+    <button onclick="comprovarDni()">Comprovem</button>
+    <p id="txt"></p>
+    <p id="txt2"></p>
+    <p id="txt3"></p>
+  </head>
+  <body>
+    <script>
+      
+      function comprovaLletra() {
+        let numeroDni = parseInt(document.getElementById("numero1").value);
+        console.log("numero dni", numeroDni, typeof(numeroDni));
+        let lletraDniUsuari = document
+          .getElementById("letraUsuario")
+          .value.toUpperCase();
+          console.log("lletra introduida", lletraDniUsuari, typeof(lletraDniUsuari));
+        const lletresDni = ["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+        let indexLletres = numeroDni % 23;
+        console.log(indexLletres);
+        let lletraCalculada = lletresDni[indexLletres];
+        console.log(lletraCalculada);
+        return lletraCalculada;
+      }
+      function comprovarDni() {
+        let numeroDni = parseInt(document.getElementById("numero1").value);
+        let lletraDniUsuari = document
+          .getElementById("letraUsuario").value.toUpperCase();
+        let lletraCalculada = comprovaLletra(numeroDni);
+
+        if (lletraCalculada !== lletraDniUsuari) {
+          document.getElementById("txt2").innerHTML =
+            "La lletra del Dni no és correcta";
+          document.getElementById("txt3").innerHTML =
+            "La lletra correcta del Dni " +
+            numeroDni +
+            " és " +
+            lletraCalculada;
+        } else {
+          document.getElementById("txt").innerHTML =
+            "La lletra del Dni és correcta";
+        }
+      }
+    </script>
+  </body>
+</html>

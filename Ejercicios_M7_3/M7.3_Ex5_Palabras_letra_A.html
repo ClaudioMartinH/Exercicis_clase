@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paraules A</title>
+    <h1>Paraules que contenen A</h1>
+    <p id="txt"></p>
+    <p id="txt2"></p>
+    <p id="txt3"></p>
+    <!-- Donat un arraylist de paraules introduïdes per l’usuari/ària.
+
+        Digues el nombre de paraules que contenen la lletra ‘a’ i mostra-les per pantalla. -->
+  </head>
+
+  <body>
+    <script>
+      
+      let paraulesAmbA = [];
+      let paraulaIntroduida = prompt(
+        "Si us plau, introdueix paraules separades per comes (','): "
+      ).toLowerCase().split(",");
+
+      function comptarParaules(paraulaUsuari) {
+        let i = 0;
+        let numeroParaules = 0;
+        let paraulesMinuscula = ""; 
+
+        for (i = 0; i < paraulaUsuari.length; i++) {
+          paraulesMinuscula = paraulaUsuari[i];
+          if (paraulesMinuscula.includes("a")) {
+            paraulesAmbA.push(paraulaUsuari[i]);
+            console.table(paraulesAmbA)
+            numeroParaules++;
+          }
+        }
+        document.getElementById("txt").innerHTML = "Les paraules introduides son : " + paraulaUsuari;
+        document.getElementById("txt2").innerHTML =
+          "Les paraules que contenen 'a' son: " + numeroParaules;
+        document.getElementById("txt3").innerHTML =
+          "I son aquestes: " + paraulesAmbA.join(", ");
+      }
+      
+      comptarParaules(paraulaIntroduida);
+
+      
+    </script>
+  </body>
+</html>

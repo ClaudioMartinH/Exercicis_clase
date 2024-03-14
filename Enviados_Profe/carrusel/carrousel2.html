@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carrusel</title>
+    <link href="./css_carrousel/estilos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <body onload="mostrarImagen()"></body>
+    <div id="container">
+      <h1>CARRUSEL DE IMAGENES</h1>
+      <p>
+        <img
+          id="imagen"
+          title="Valentino 2001"
+          alt="Victoria de Valentino con la moto 2T"
+          src="./imagenes_carrousel/vr2001.jpg"
+        />
+      </p>
+      <p>
+        <button id="retroceder" onclick="retrocede()">Retroceder</button>
+        <span id="nombreImagen"></span>
+        <button id="avanzar" onclick="avanza()">Avanzar</button>
+      </p>
+      <p id="descripcionImagen"></p>
+    </div>
+
+    <script>
+      const RUTA = "./imagenes_carrousel/";
+      const imagenes = [
+        {
+          imagen: "vr2001.jpg",
+          nombre: "Valentino 2001",
+          title: "NSR500",
+          descripcion: "Victoria de Valentino con la moto 2T",
+        }, //0
+        {
+          imagen: "vr2015.jpg",
+          nombre: "Valentino 2015",
+          title: "DucatiGP15",
+          descripcion: "La fallida experiencia de Valentino en Ducati",
+        }, //1
+        {
+          imagen: "vr2016.jpg",
+          nombre: "Valentino 2016",
+          title: "YamahaM1",
+          descripcion: "Vuelta a Yamaha después de fracasar con Ducati",
+        }, //2
+        {
+          imagen: "vr2017.jpg",
+          nombre: "Valentino 2017",
+          title: "YamahaM1",
+          descripcion: "Valentino bajo la lluvia argentina",
+        }, //3
+        {
+          imagen: "vr2018.jpg",
+          nombre: "Valentino 2018",
+          title: "YamahaM1",
+          descripcion: "Valentino bajo noche en Qatar",
+        }, //4
+      ];
+      let posicion = 0;
+      function avanza() {
+        posicion++;
+        if (posicion >= imagenes.length) {
+          //alert("Es la última imagen");
+          posicion = 0;
+        }
+        mostrarImagen();
+      }
+      function retrocede() {
+        posicion--;
+        if (posicion < 0) {
+          //alert("Es la primera imagen");
+          posicion = imagenes.length - 1;
+        }
+        mostrarImagen();
+      }
+      function mostrarImagen() {
+        let objecteMoto = imagenes[posicion];
+        let imagenMoto = RUTA + objecteMoto.imagen;
+        console.log(imagenMoto);
+        let imagenTitle = imagenes[posicion].title;
+        console.log(imagenTitle);
+        let imagenNombre = imagenes[posicion].nombre;
+        console.log(imagenNombre);
+        let imagenDescripcion = imagenes[posicion].descripcion;
+        console.log(imagenDescripcion);
+        document.getElementById("imagen").src = imagenMoto;
+        document.getElementById("imagen").title = imagenTitle;
+        document.getElementById("imagen").alt = imagenDescripcion;
+        document.getElementById("nombreImagen").innerHTML = imagenNombre;
+        document.getElementById("descripcionImagen").innerHTML =
+          imagenDescripcion;
+      }
+    </script>
+  </body>
+</html>

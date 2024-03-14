@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dona la volta</title>
+    <h1>Donarem la volta a la teva frase</h1>
+    <h3>Escriu una frase i jo li dono la volta</h3>
+    <button onclick="voltejarString()">Clicka per jugar</button>
+    <p id="txt"></p>
+</head>
+<body>
+    <script>
+   
+    
+
+    function voltejarString(){
+        let fraseIntroduida = "";
+        let i = 0;
+        let longitudString = 0;
+        resultatVoltejat = "";
+        fraseIntroduida = prompt("Escriu una frase: ");
+        longitudString = fraseIntroduida.length;
+
+        for (i = 0; i <= longitudString; i++) { 
+                resultatVoltejat += fraseIntroduida.charAt(longitudString - i);
+            }
+                console.log(resultatVoltejat);
+                document.getElementById("txt").innerHTML = "La frase invertida és: " + resultatVoltejat;
+        } 
+    
+
+    </script>
+</body>
+</html>

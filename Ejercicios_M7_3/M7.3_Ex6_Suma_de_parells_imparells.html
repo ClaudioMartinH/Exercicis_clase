@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suma de parells imparells</title>
+    <h4>Donat un array de numeros, hauré de dir la</h4>
+    <h4>suma dels parells i la dels imparells</h4>
+    <button onclick="comprovacio()">Clica per jugar</button>
+    <p id="txt"></p>
+    <p id="txt2"></p>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      function comprovacio() {
+        let numerosOrdinador = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let arrayParells = [];
+        let arrayImparells = [];
+        let sumaParells = 0;
+        let sumaImparells = 0;
+        let i = 0;
+
+        for (i = 0; i < numerosOrdinador.length; i++) {
+          if (numerosOrdinador[i] % 2 != 0) {
+            arrayImparells.push(numerosOrdinador[i]);
+            console.table(arrayImparells);
+          } else {
+            arrayParells.push(numerosOrdinador[i]);
+            console.table(arrayParells);
+          }
+        }
+
+        for (i = 0; i < arrayParells.length; i++) {
+          sumaParells += arrayParells[i];
+          console.table(arrayImparells);
+        }
+        for (i = 0; i < arrayImparells.length; i++) {
+          sumaImparells += arrayImparells[i];
+          console.table(arrayParells);
+        }
+        document.getElementById("txt").innerHTML =
+          "Els numeros parells són: " +
+          arrayParells.join(", ") +
+          " i la seva suma dona: " +
+          sumaParells;
+        document.getElementById("txt2").innerHTML =
+          "Els numeros imparells són: " +
+          arrayImparells.join(", ") +
+          " i la seva suma dona: " +
+          sumaImparells;
+      }
+    </script>
+  </body>
+</html>

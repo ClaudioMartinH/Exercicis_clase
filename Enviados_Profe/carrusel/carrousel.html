@@ -32,22 +32,22 @@
                 posicion++;
                 if (posicion >= imagenes.length){
                 alert("Es la última imagen");
-                posicion--;
+                posicion = 0;
                 }
             mostrarImagen()
             }
             function retrocede(){
                 posicion--;
-                if (posicion <= imagenes.length){
+                if (posicion < 0){
                 alert("Es la primera imagen");
-                posicion++;
+                posicion = imagenes.length -1;
                 }
             mostrarImagen()
             }
             function mostrarImagen(){
                 let imagen = RUTA + imagenes[posicion];
                 document.getElementById("imagen").src = imagen;
-                document.getElementById("nombreImagen").innerHTML = imagen; 
+                document.getElementById("nombreImagen").innerHTML = imagenes[posicion]; 
             }
             
     </script>

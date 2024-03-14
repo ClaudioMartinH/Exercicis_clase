@@ -8,16 +8,14 @@
     <p>
         Introdueix la mida central de la piramide<input type="number" id="numeroU" />
     </p>
-    <button onclick="dibuixaPiramide()">clicka per dibuixar la piramide</button>
+    <button onclick="leerDatos()">clicka per dibuixar la piramide</button>
     <p id="missatge"></p>
 </head>
 
 <body>
     <script>
-        function dibuixaTriangle() {
-            let mesuraUsuari = parseInt(document.getElementById("numeroU").value);
-            console.log(mesuraUsuari);
-            let simbolDibuix = "*";
+        function dibuixaTriangle(mesuraUsuari, simbolDibuix) {
+            
             let missatge = " ";
             let areaTriangle = " ";
             let i = 0;
@@ -30,16 +28,14 @@
             }
             return areaTriangle;
         }
-        function dibuixaTriangleInvertit() {
-            let mesuraUsuari = parseInt(document.getElementById("numeroU").value);
-            console.log(mesuraUsuari);
-            let simbolDibuix = "*";
+        function dibuixaTriangleInvertit(mesuraUsuari, simbolDibuix) {
+            
             let missatge = " ";
             let areaTriangleInvertit = " ";
             let i = 0;
             let j = 0;
             for (i = mesuraUsuari; i >= 0; i--) {
-                for (j = 2; j <= i; j++) {
+                for (j = 1; j <= i; j++) {
                     areaTriangleInvertit += simbolDibuix + missatge;
                 }
                 areaTriangleInvertit += "<br>";
@@ -47,9 +43,12 @@
 
             return areaTriangleInvertit;
         }
-        function dibuixaPiramide() {
+        function leerDatos() {
+            let mesuraUsuari = parseInt(document.getElementById("numeroU").value);
+            console.log(mesuraUsuari);
+            let simbolDibuix = "*";         //aqui podria pedir un simbolo
             return (document.getElementById("missatge").innerHTML =
-                dibuixaTriangle() + dibuixaTriangleInvertit());
+                dibuixaTriangle(mesuraUsuari, simbolDibuix) + dibuixaTriangleInvertit(mesuraUsuari -1, simbolDibuix));
         }
     </script>
 </body>

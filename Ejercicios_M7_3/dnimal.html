@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lletra DNI</title>
+    <h4>Introdueix un numero de DNI i et diré la lletra</h4>
+    <p>
+      Introdueix el numero a comprovar<input type="number" id="numeroUsuario" />
+    </p>
+    <p>Introdueix la lletra comprovar<input type="text" id="letraUsuario" /></p>
+    <button onclick="comprovarDni()">Comprovem</button>
+    <p id="txt"></p>
+  </head>
+  <body>
+    <script>
+      // function comprovarDni() {
+      //   let lletras = "TRWAGMYFPDXBNJZSQVHLCKE";
+      //   let dniUsuari = parseInt(
+      //     document.getElementById("numeroUsuario").value
+      //   );
+      //   let lletraDni = document.getElementById("letraUsuario").innerHTML;
+
+        function calcularLetraDNI(numeroDNI) {
+          // Array con las letras correspondientes a cada número de DNI
+          let letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+          // Calcular la letra correspondiente al número de DNI dado
+          let indice = numeroDNI % 23;
+          let letraCalculada = letrasDNI.charAt(indice);
+
+          return letraCalculada;
+        }
+
+        function verificarDNI(numeroDNI, letraDNI) {
+          // Calcular la letra correspondiente al número de DNI dado
+          let letraCalculada = calcularLetraDNI(numeroDNI);
+
+          // Verificar si la letra proporcionada por el usuario coincide con la letra calculada
+          if (letraCalculada === letraDNI.toUpperCase()) {
+            console.log("La letra del DNI es correcta.");
+          } else {
+            console.log("La letra del DNI no es correcta.");
+            console.log(
+              "La letra correcta para el número " +
+                numeroDNI +
+                " es: " +
+                letraCalculada
+            );
+          }
+        }
+
+        // Ejemplo de uso:
+        let numeroDNI = prompt("Introduce el número de DNI:");
+        let letraDNI = prompt("Introduce la letra del DNI:");
+
+        verificarDNI(numeroDNI, letraDNI);
+
+        // let numeroUsuari = parseInt(document.getElementById("numero").value);
+        // let frase = "El DNI que has introduit és: ";
+
+        // if (numeroUsuari%23 == 0){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " T";
+        // }else if (numeroUsuari%23 == 1){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " R";
+        // }else if (numeroUsuari%23 == 2){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " W";
+        // }else if (numeroUsuari%23 == 3){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " A";
+        // }else if (numeroUsuari%23 == 4){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " G";
+        // }else if (numeroUsuari%23 == 5){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " M";
+        // }else if (numeroUsuari%23 == 6){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " Y";
+        // }else if (numeroUsuari%23 == 7){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " F";
+        // }else if (numeroUsuari%23 == 8){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " P";
+        // }else if (numeroUsuari%23 == 9){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " D";
+        // }else if (numeroUsuari%23 == 10){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " X";
+        // }else if (numeroUsuari%23 == 11){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " B";
+        // }else if (numeroUsuari%23 == 12){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " N";
+        // }else if (numeroUsuari%23 == 13){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " J";
+        // }else if (numeroUsuari%23 == 14){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " Z";
+        // }else if (numeroUsuari%23 == 15){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " S";
+        // }else if (numeroUsuari%23 == 16){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " Q";
+        // }else if (numeroUsuari%23 == 17){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " V";
+        // }else if (numeroUsuari%23 == 18){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " H";
+        // }else if (numeroUsuari%23 == 19){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " L";
+        // } else if (numeroUsuari%23 == 20){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " C";
+        // } else if (numeroUsuari%23 == 21){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " K";
+        // } else if (numeroUsuari%23 == 22){
+        //     document.getElementById("txt").innerHTML = frase + numeroUsuari + " E";
+        // } else {
+        //     document.getElementById("txt").innerHTML = "El numero de DNI introduït no és correcte, introdueix un altre"
+        // }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir tasques</title>
+    <h2>Benvinguts al meu TO-DO List</h2>
+    <p><label for="accio">Selecciona el que vols fer</label>
+        <select id="accio">
+           <option value="0" selected>Sel.lecciona una opció</option>
+           <option value="1">Crear tasca</option>
+           <option value="2">Eliminar tasca</option>
+           <option value="3">Mostar tasques pendents</option>
+        </select>
+    <button onclick="modificaTasques()">Clicka aqui per començar</button>
+    <p id="txt"></p>
+</head>
+<body>
+    <script>
+
+        //aqui me lee el string, te va a servir para darle la vuelta
+        
+        let tasques = [];
+        
+        
+        function creaTasca(){
+            let novaTasca = prompt("Introdueix una nova tasca");
+            tasques.push(novaTasca);
+            console.log(novaTasca);
+            //document.getElementById("txt").innerHTML = TASQUES;
+
+
+        }
+        
+        function eliminaTasca(){
+            let tascaEliminada = parseInt(prompt("Digues el numero de tasca que vols eliminar"));
+
+        }
+        
+        function tasquesPendents(){
+            let tasquesPendents = "Aquestes són les tasques pendents \n" + "<br>" + tasques;
+            let i = 0;
+            let valor = 0;
+            
+            for (valor of tasquesPendents) {
+            tasques += i + " " + valor + '\n';
+            i++;
+            };
+            document.getElementById("txt").innerHtml = tasques;
+            console.log(tasques);
+        }
+
+        function modificaTasques(){
+            
+            let opcioSeleccionada = parseInt(document.getElementById("accio").value);
+
+            switch (opcioSeleccionada){
+                case 1 : creaTasca();
+                break;
+                case 2: eliminaTasca();
+                break;
+                case 3: tasquesPendents();
+                break;
+                default: alert("Sel.lecciona una opció");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

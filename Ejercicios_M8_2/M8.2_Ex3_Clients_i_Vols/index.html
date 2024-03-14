@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLients i Vols</title>
+    <script src="./js/claseClients.js"></script>
+    <script src="./js/claseVols.js"></script>
+    <script src="./js/crud.js"></script>
+    <details style="background-color: rgb(248, 200, 79)">
+      Modifica les classes Client i Vol, perquè responguin al diagrama de
+      classes de la imatge.<br />
+
+      Fes un programa que tingui programades totes les opcions: (Cada opció pot
+      ser un botó diferent)<br />
+
+      ·Crear client/a.<br />
+      ·Eliminar client/a.<br />
+      ·Crear vol d'un client/a.<br />
+      ·Mostra la mitjana d'edat dels clients majors d'edat..<br />
+      ·Calcular petjada de carboni d'un client (és la suma del CO₂ de tots els
+      seus vols).<br />
+      ·Calcular petjada de carboni mitjà de tots els clients.<br />
+      A tenir en compte:<br />
+
+      En crear un client, aquest no haurà de tenir cap vol "associat".<br />
+      A l'App només volem tenir un array de clients, no de vols. Els vols s'han
+      de guardar dintre dels clients.<br />
+      El diagrama UML mostrà les propietats i mètodes mínims que han de tenir
+      les classes, però pots crear-ne més si és necessari.
+    </details>
+  </head>
+  <body background="./js/pexels-ahmed-muntasir-912050.jpg">
+    <button onclick="agregarCliente()">AFEGIR CLIENT</button>
+    <button onclick="eliminarCliente()">ELIMINAR CLIENT</button>
+    <button onclick="crearVolCliente()">CREAR VOL CLIENT</button>
+    <button onclick="mitjanaEdat()">MITJANA EDAT ADULTS</button>
+    <button onclick="petjadaCarboniClient()">PETJADA CARBONI CLIENT</button>
+    <button onclick="petjadaCarboniMitjana()">MITJANA PETJADA CARBONI</button>
+    <p id="txt"></p>
+  </body>
+</html>
