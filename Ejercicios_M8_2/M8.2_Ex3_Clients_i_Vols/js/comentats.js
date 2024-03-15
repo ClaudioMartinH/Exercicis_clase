@@ -49,3 +49,6 @@
   // eliminarVolClient(index){
   //   this.volsClient.splice(index, 1)
   // }
+  // let calculPetjada =
+  //   +(this.distanciaKms / 1000) * (this.nombreMotors * Vols.tones).toFixed(2);
+  // let petjada = volsClient.forEach((vol) => {});

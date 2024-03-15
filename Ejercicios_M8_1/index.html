@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <div style="background-color: rgb(39, 129, 93); font-style: oblique;">
+    <div style="background-color: rgb(226, 187, 132); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: small;">
       new Persona{ nombre: "Juan", dni: "12345678", hobbies: ["leer", "bailar"],
       },<br />
       new Persona{ nombre: "María", dni: "87654321", hobbies: ["pintar",
@@ -17,35 +17,83 @@
       guitarra", "hacer deporte"], },
     </div>
     <div>
-      Selecciona una opció <br>
-      <select style="background-color: darkseagreen;" class="ancho" size="7" id="opt">
-        <option value="1" selected>1. Trobar una persona pel seu DNI mitjançant el mètode find. Es demana a
-      l’usuari que introdueixi el DNI a cercar, i llavors s’informa de si la
-      persona està donada d’alta o no a l’aplicació.</option>
-        <option value="2"> 2. Trobar la posició d’una persona dintre de l’array mitjançant el mètode
-      findIndex. Es demana a l’usuari que introdueixi el DNI a cercar, i llavors
-      s’informa de la posició de la persona a l’array.</option>
-        <option value="3">3. Mostrar les persones que tenen un hobby en concret mitjançant el mètode
-      filter. Es demana a l’usuari que introdueixi un hobby,
-      i llavors es mostren les persones que tenen aquest hobby a la seva llista
-      de hobbys. </option>
-        <option value="4">4. Mostrar el total de hobbys que tenen les persones mitjançant el mètode
-      reduce. </option>
-        <option value="5">5. Verificar si alguna persona té un hobby en concret mitjançant la
-      combinació dels mètodes some i includes. Es demana a l’usuari que
-      introdueixi el hobby a cercar, i llavors s’informa de si alguna persona té
-      el hobby.</option>
-        <option value="6">6. Trobar la primera persona amb un hobby en concret mitjançant la
-      combinació dels mètodes find i includes.
-      Es demana a l’usuari que introdueixi el hobby, i llavors es mostra
-      la primera persona que té el hobby.</option>
-        <option value="7"> 7. Crear un array nou amb els noms de
-      totes les persones en majúscules mitjançant el mètode map.</option>
-
+      Selecciona una opció <br />
+      <select 
+        style="font-size:x-small; background-color: rgb(110, 123, 123);"
+        class="ancho"
+        size="7"
+        id="opt"
+        
+      >
+        <option value="1" selected>
+          1. Trobar una persona pel seu DNI mitjançant el mètode find. Es demana
+          a l’usuari que introdueixi el DNI a cercar, i llavors s’informa de si
+          la persona està donada d’alta o no a l’aplicació.
+        </option>
+        <option value="2">
+          2. Trobar la posició d’una persona dintre de l’array mitjançant el
+          mètode findIndex. Es demana a l’usuari que introdueixi el DNI a
+          cercar, i llavors s’informa de la posició de la persona a l’array.
+        </option>
+        <option value="3">
+          3. Mostrar les persones que tenen un hobby en concret mitjançant el
+          mètode filter. Es demana a l’usuari que introdueixi un hobby, i
+          llavors es mostren les persones que tenen aquest hobby a la seva
+          llista de hobbys.
+        </option>
+        <option value="4">
+          4. Mostrar el total de hobbys que tenen les persones mitjançant el
+          mètode reduce.
+        </option>
+        <option value="5">
+          5. Verificar si alguna persona té un hobby en concret mitjançant la
+          combinació dels mètodes some i includes. Es demana a l’usuari que
+          introdueixi el hobby a cercar, i llavors s’informa de si alguna
+          persona té el hobby.
+        </option>
+        <option value="6">
+          6. Trobar la primera persona amb un hobby en concret mitjançant la
+          combinació dels mètodes find i includes. Es demana a l’usuari que
+          introdueixi el hobby, i llavors es mostra la primera persona que té el
+          hobby.
+        </option>
+        <option value="7">
+          7. Crear un array nou amb els noms de totes les persones en majúscules
+          mitjançant el mètode map.
+        </option>
       </select>
     </div>
-    <input type="button" id="selection" name="Selecciona" class="btn btn-primary ok_nombre" value="Prem aqui" onClick="habilitar()"/>
-    <script src="array.js"></script>
+    <input
+      type="button"
+      id="selection"
+      name="Selecciona"
+      value="Prem aqui"
+      onClick="verificar()"
+    />
+    <p id="txt" style="color: azure;"></p>
+    <script src="main.js"></script>
   </head>
-  <body></body>
+  <body background="pexels-magda-ehlers-6175107.jpg">
+    <script>
+      function verificar() {
+        let seleccion = document.getElementById("opt").value;
+        switch (seleccion) {
+          case "1": buscarPersonaDni();
+            break;
+          case "2": buscarPosicioPersona();
+            break;
+          case "3": personesHobbies();
+            break;
+          case "4": totsElsHobbies();
+            break;
+          case "5": tensHobbies();
+            break;
+          case "6": personaHobbie();
+            break;
+          case "7": arrayNomsMajuscules();
+            break;
+        }
+      }
+    </script>
+  </body>
 </html>

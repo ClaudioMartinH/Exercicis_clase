@@ -19,6 +19,9 @@ class Client {
     else majorEdat == false;
     return majorEdat;
   }
+  afegirVol(vol){
+    this.volsClient.push(vol);
+  }
 
   getDni() {
     return this.dni;
@@ -50,6 +53,15 @@ class Client {
   }
   setEdat(nuevaEdat) {
     this.edat = nuevaEdat;
+  }
+
+  petjadaCarboniClient(){
+    let petjada = 0;
+    for (let vol of this.volsClient){
+     petjada += vol.getPetjadaCarboni();
+    }
+    console.log("petjada", petjada);
+    return petjada;
   }
 
   toString() {

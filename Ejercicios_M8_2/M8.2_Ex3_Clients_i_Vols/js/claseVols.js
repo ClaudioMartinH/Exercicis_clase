@@ -15,17 +15,6 @@ class Vols {
     this.nombreMotors = nombreMotors;
   }
 
-  getPetjadaCarboni() {
-    let missatge =
-      "El vol " +
-      this.numeroVol +
-      " contamina " +
-      ((this.distanciaKms / 1000) * (this.nombreMotors * Vols.tones)).toFixed(
-        2
-      ) +
-      " Tones de CO2";
-    return missatge;
-  }
   getNumeroVol() {
     return this.numeroVol;
   }
@@ -56,15 +45,27 @@ class Vols {
   setNombreMotors(nouNombreMotors) {
     this.numeroMotors = nouNombreMotors;
   }
+  getPetjadaCarboni() {
+    // let missatge =
+    //   "El vol " +
+    //   this.numeroVol +
+    //   " contamina " +
+    //   (+(this.distanciaKms / 1000) * (this.nombreMotors * Vols.tones)) /
+    //     this.numPassatgers.toFixed(2) +
+    //   " Tones de CO2 per passatger.";
+    let huellaPers = (+(this.distanciaKms / 1000) * (this.nombreMotors * Vols.tones)) /
+        this.numPassatgers.toFixed(2)
+    return huellaPers;
+  }
   toString() {
     let mensaje = `
-  DADES DEL VOL
-  --------------------------------
-  NUMERO DE VOL         ${this.numeroVol}
-  DISTÀNCIA DEL VOL     ${this.distanciaKms} KMS.
-  COMPANYIA             ${this.companyia}
-  NUMERO DE PASSATGERS  ${this.numPassatgers}
-  NUMERO DE MOTORS      ${this.nombreMotors}
+    DADES DEL VOL
+    --------------------------------
+    NUMERO DE VOL         ${this.numeroVol}
+    DISTÀNCIA DEL VOL     ${this.distanciaKms} KMS.
+    COMPANYIA             ${this.companyia}
+    NUMERO DE PASSATGERS  ${this.numPassatgers}
+    NUMERO DE MOTORS      ${this.nombreMotors}
   PETJADA DE CARBONI    ${this.getPetjadaCarboni()}
 
   `;
