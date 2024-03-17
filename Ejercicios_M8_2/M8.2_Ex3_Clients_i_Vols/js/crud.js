@@ -1,23 +1,4 @@
-const clients = [];
-
-let client1 = new Client("12345678A", "JOAN", "LOPEZ", "ESPANYOLA", 35, []);
-let client2 = new Client("98765432B", "PEP", "MAS", "FRANCES", 44, []);
-let client3 = new Client("12345678Y", "ANTONIO", "MAS", "FRANCES", 14, []);
-let client4 = new Client("88555432H", "FRANCESC", "MAS", "FRANCES", 4, []);
-
-clients.push(client1, client2, client3, client4);
-console.table(clients);
-
-let vol1 = new Vols(1000, 4275, "KLM", 125, 4);
-let vol2 = new Vols(1001, 9875, "VUELING", 135, 4);
-let vol3 = new Vols(1002, 6850, "IBERIA", 130, 4);
-let vol4 = new Vols(1003, 7475, "ETIHAD", 195, 4);
-
-client1.afegirVol(vol1);
-client1.afegirVol(vol4);
-client2.afegirVol(vol2);
-client3.afegirVol(vol3);
-client4.afegirVol(vol2);
+omplirArray();
 
 function agregarCliente() {
   let dniUsuari = "";
@@ -56,7 +37,6 @@ function agregarCliente() {
 }
 
 function eliminarCliente() {
- 
   let dniUsuari = prompt("Introdueix el Dni del client: ");
   let index = clients.findIndex((client) => client.dni === dniUsuari);
   if (index >= 0) {
@@ -92,14 +72,14 @@ function crearVolCliente() {
       );
       nouNombreMotors = +prompt("Introdueix el nombre de motors de l'avió: ");
 
-      let volNou = new Vols(
+      let volNou = new Vol(
         nouNumeroVol,
         nouDistanciaKms,
         nouCompanyia,
         nouNumeroPassatgers,
         nouNombreMotors
       );
-      clients[index].volsClient.push(volNou);
+      clients[index].afegirVol(volNou); //clients[index].volsClient.push(volNou);
       console.table(clients[index]);
       alert(clients[index]);
     } else alert("El vol ja existeix. ");

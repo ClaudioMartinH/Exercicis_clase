@@ -1,30 +1,3 @@
-const personas = [
-  {
-    nombre: "Juan",
-    dni: "12345678",
-    hobbies: ["leer", "bailar"],
-  },
-  {
-    nombre: "María",
-    dni: "87654321",
-    hobbies: ["pintar", "correr", "viajar"],
-  },
-  {
-    nombre: "Pedro",
-    dni: "98765432",
-    hobbies: ["cocinar", "ver películas"],
-  },
-  {
-    nombre: "Laura",
-    dni: "54321678",
-    hobbies: ["hacer deporte", "viajar"],
-  },
-  {
-    nombre: "Carlos",
-    dni: "87651234",
-    hobbies: ["tocar la guitarra", "hacer deporte"],
-  },
-];
 let texto = document.getElementById("txt");
 
 function buscarPersonaDni() {
@@ -32,21 +5,30 @@ function buscarPersonaDni() {
   let dniBuscar = +prompt(
     "Introduzca el numero del DNI que está buscando (sin la letra)"
   );
-  const encontrarDni = personas.find((persona) => persona.dni == dniBuscar);
-  console.log("dni encontrado", encontrarDni);
-  if (encontrarDni) {
+  while (
+    dniBuscar === null ||
+    dniBuscar === undefined ||
+    isNaN(dniBuscar) ||
+    dniBuscar <= 0
+  ) {
+    dniBuscar = +prompt(
+      "Introduzca el numero del DNI que está buscando (sin la letra)"
+    );
+  }
+  const personaDniOk = personas.find((persona) => persona.dni == dniBuscar);
+  console.log("dni encontrado", personaDniOk);
+  if (personaDniOk) {
     mensaje =
       "El DNI " +
       dniBuscar +
       " pertenece a " +
-      encontrarDni.nombre +
+      personaDniOk.nombre +
       " y se encuentra dado de alta en la aplicación";
-    
   } else {
     mensaje =
       "El " + dniBuscar + " no se encuentra dado de alta en la aplicacion";
-    }
-    texto.innerHTML = mensaje;
+  }
+  texto.innerHTML = mensaje;
 }
 
 function buscarPosicioPersona() {
@@ -55,12 +37,22 @@ function buscarPosicioPersona() {
   let dniBuscar = +prompt(
     "Introduzca el numero del DNI que está buscando (sin la letra)"
   );
+  while (
+    dniBuscar === null ||
+    dniBuscar === undefined ||
+    isNaN(dniBuscar) ||
+    dniBuscar <= 0
+  ) {
+    dniBuscar = +prompt(
+      "Introduzca el numero del DNI que está buscando (sin la letra)"
+    );
+  }
   indice = personas.findIndex((persona) => persona.dni == dniBuscar);
   console.log("indice: ", indice);
   if (indice == -1) {
     alert("El DNI no se encuentra en la base de datos");
   } else {
-    mensaje = "El DNI " + dniBuscar + " se encuentra en la posición: " + indice;
+    mensaje = "El DNI " + dniBuscar + " pertenece a " + personas[indice].nombre + " y se encuentra en la posición: " + indice;
     texto.innerHTML = mensaje;
   }
 }
@@ -71,7 +63,8 @@ function personesHobbies() {
   const personasFiltradas = personas.filter((persona) =>
     persona.hobbies.includes(paraulaUsuari)
   );
-  if (personasFiltradas.length > 0) {
+  if (personasFiltradas) {
+    //personasFiltradas.length > 0
     personasFiltradas.forEach((persona) => (mensaje += persona.nombre + " "));
   } else mensaje = "No se encontraron personas con el hobbie introducido";
 
@@ -80,13 +73,22 @@ function personesHobbies() {
 }
 
 function totsElsHobbies() {
-  let mensaje = personas.reduce((allHobbies, persona) => {
-    return Array.from(new Set([...allHobbies, ...persona.hobbies]));
-  }, []);
-  console.log(mensaje);
+  // let mensajeArray = personas.reduce((allHobbies, persona) => {
+  //   return Array.from(new Set([...allHobbies, ...persona.hobbies]));
+  // }, []);
+  let mensajeArray = [];
+  personas.forEach((persona) => {
+    for (hobbie of persona.hobbies) {
+      if (!mensajeArray.includes(hobbie)) {
+        //s'ha de negar que hi sigui per poder comprovar-ho
+        mensajeArray.push(hobbie);
+      }
+    }
+  });
+  console.log(mensajeArray);
   texto.innerHTML =
     "Los hobbies de las personas registradas (sin repetirse) son: " +
-    mensaje.join(", ");
+    mensajeArray.join(", ");
 }
 
 function tensHobbies() {
@@ -95,13 +97,13 @@ function tensHobbies() {
   let personaAmbHobbie = personas.some((persona) =>
     persona.hobbies.includes(hobbieBuscar)
   );
-  if (personaAmbHobbie == true) {
+  if (personaAmbHobbie === true) {
     mensaje = "Hemos encontrado el hobbie";
   } else mensaje = "No se ha encontrado el hobbie";
   texto.innerHTML = mensaje;
 }
 function personaHobbie() {
-  let mensaje = "";
+  let mensaje = ""; //amb el find troba la primera persona que el tingui, i amb un filter em donarà un array amb tots esl que tinguin aquell hobbie
   let hobbieIntroduit = prompt("Introduce el hobbie a buscar: ");
   const personaElegida = personas.find((persona) =>
     persona.hobbies.includes(hobbieIntroduit)
@@ -115,7 +117,34 @@ function personaHobbie() {
 function arrayNomsMajuscules() {
   let nomsMajuscules = [];
   let mensaje = "";
-  nomsMajuscules = personas.map((persona) => persona.nombre);
+  nomsMajuscules = personas.map((persona) => persona.nombre.toUpperCase());
   mensaje = nomsMajuscules.join(", ");
-  texto.innerHTML = mensaje.toUpperCase();
+  texto.innerHTML = mensaje;
+}
+
+function verificar() {
+  let seleccion = document.getElementById("opt").value;
+  switch (seleccion) {
+    case "1":
+      buscarPersonaDni();
+      break;
+    case "2":
+      buscarPosicioPersona();
+      break;
+    case "3":
+      personesHobbies();
+      break;
+    case "4":
+      totsElsHobbies();
+      break;
+    case "5":
+      tensHobbies();
+      break;
+    case "6":
+      personaHobbie();
+      break;
+    case "7":
+      arrayNomsMajuscules();
+      break;
+  }
 }

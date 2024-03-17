@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <div style="background-color: rgb(226, 187, 132); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: small;">
+  </head>
+  <body background="pexels-magda-ehlers-6175107.jpg">
+    <div
+      style="
+        background-color: rgb(226, 187, 132);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: small;
+      "
+    >
       new Persona{ nombre: "Juan", dni: "12345678", hobbies: ["leer", "bailar"],
       },<br />
       new Persona{ nombre: "María", dni: "87654321", hobbies: ["pintar",
@@ -16,14 +24,13 @@
       new Persona{ nombre: "Carlos", dni: "87651234", hobbies: ["tocar la
       guitarra", "hacer deporte"], },
     </div>
-    <div>
+    <div style="color: aliceblue;">
       Selecciona una opció <br />
-      <select 
-        style="font-size:x-small; background-color: rgb(110, 123, 123);"
+      <select
+        style="font-size: x-small; background-color: rgb(110, 123, 123)"
         class="ancho"
         size="7"
         id="opt"
-        
       >
         <option value="1" selected>
           1. Trobar una persona pel seu DNI mitjançant el mètode find. Es demana
@@ -70,30 +77,8 @@
       value="Prem aqui"
       onClick="verificar()"
     />
-    <p id="txt" style="color: azure;"></p>
-    <script src="main.js"></script>
-  </head>
-  <body background="pexels-magda-ehlers-6175107.jpg">
-    <script>
-      function verificar() {
-        let seleccion = document.getElementById("opt").value;
-        switch (seleccion) {
-          case "1": buscarPersonaDni();
-            break;
-          case "2": buscarPosicioPersona();
-            break;
-          case "3": personesHobbies();
-            break;
-          case "4": totsElsHobbies();
-            break;
-          case "5": tensHobbies();
-            break;
-          case "6": personaHobbie();
-            break;
-          case "7": arrayNomsMajuscules();
-            break;
-        }
-      }
-    </script>
+    <p id="txt" style="color: azure"></p>
+    <script src="./js/arrayPersones.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

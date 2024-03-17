@@ -1,4 +1,4 @@
-class Vols {
+class Vol {
   static tones = 0.1;
 
   numeroVol;
