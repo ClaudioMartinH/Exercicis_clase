@@ -1,4 +1,4 @@
-omplirArray();
+//omplirArray();
 
 function agregarCliente() {
   let dniUsuari = "";
@@ -57,10 +57,10 @@ function crearVolCliente() {
   let nouNumeroPassatgers = 0;
 
   dniUsuari = prompt("Introdueix el Dni del client: ").toUpperCase();
-  index = clients.findIndex((clients) => clients.dni === dniUsuari);
-  if (index != -1) {
+  indexClient = clients.findIndex((clients) => clients.dni === dniUsuari);
+  if (indexClient != -1) {
     nouNumeroVol = +prompt("Introdueix el numero de vol del client: ");
-    indexVol = clients[index].volsClient.findIndex(
+    indexVol = clients[indexClient].volsClient.findIndex(
       (volsClient) => volsClient.numeroVol === nouNumeroVol
     );
 
@@ -79,11 +79,11 @@ function crearVolCliente() {
         nouNumeroPassatgers,
         nouNombreMotors
       );
-      clients[index].afegirVol(volNou); //clients[index].volsClient.push(volNou);
-      console.table(clients[index]);
-      alert(clients[index]);
+      clients[indexClient].afegirVol(volNou); //clients[index].volsClient.push(volNou);
+      console.table(clients[indexClient]);
+      alert(clients[indexClient]);
     } else alert("El vol ja existeix. ");
-  } else alert("el client no existeix");
+  } else alert("El client no existeix");
 }
 
 function mitjanaEdat() {
