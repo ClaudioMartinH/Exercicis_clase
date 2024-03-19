@@ -1,9 +1,11 @@
 class Avioneta extends Avio {
+  static tipoAvion = "Avioneta"
   helix;
   constructor(numeroAvio, marca, model, carregaKg, llarg, helix) {
     super(numeroAvio, marca, model, carregaKg, llarg);
     this.helix = helix;
   }
+
   getClase(obj) {
     if (obj instanceof Avioneta) {
       return "Avioneta";

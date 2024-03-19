@@ -1,13 +1,5 @@
 omplirArrayAvions();
 
-// function resetRadios() {
-//   //radios html
-//   let arrayRadios = document.querySelectorAll("input[name = 'opcion']:checked"); //sel.lecciona tot el que sigui un imput de nom opcion
-//   console.log(arrayRadios);
-//   arrayRadios.forEach((radio) => {
-//     if (radio.checked === true) radio.checked = false;
-//   });
-// }
 function altaAvio() {
   let index = -1;
   let numeroAvio = 0;
@@ -28,9 +20,7 @@ function altaAvio() {
     alert("Si us plau sel.lecciona una opció vàlida");
   } else {
     numeroAvio = +prompt("Introdueixi el numero d'avió a crear: ");
-    index = avions.findIndex(
-      (avions) => avions.numeroAvio === numeroAvio
-    );
+    index = avions.findIndex((avions) => avions.numeroAvio === numeroAvio);
     console.log("index ", index);
     switch (avioCrear) {
       case 1:
@@ -135,8 +125,7 @@ function eliminaAvio() {
 function mostrarAvio() {
   let numAvioBuscar = 0;
   let indexAvioBuscar = -1;
-  let avioTrobat = {}; //declarem objecte buit per poder fer-lo servir despres
-  let tipusAvio = "";
+  let avioTrobat = {};
 
   numAvioBuscar = +prompt(
     "Introdueix el numero de l'avió que vols que mostri "
@@ -152,55 +141,54 @@ function mostrarAvio() {
     indexAvioBuscar = avions.findIndex(
       (avions) => avions.numeroAvio === numAvioBuscar
     );
-    avioTrobat = avions[indexAvioBuscar]; //fiquem l'index dins la variable per treballar més fàcil
-    tipusAvio = avioTrobat.getClase(avioTrobat); //cridem al metode perque ens trobi el tipus
-    console.log("index avio buscar", indexAvioBuscar);
+    avioTrobat = avions[indexAvioBuscar];
     console.log("Avio trobat", avioTrobat);
-    if (indexAvioBuscar < 0) {
-      alert("L'avió introdueit no existeix");
+    if (avioTrobat instanceof Avioneta) {
+      missatgeMostrar = `
+      ${avioTrobat}
+  -Temps de neteja: ${avioTrobat.netejar()} minuts de neteja.
+  -Distancia que pot recòrrer: ${avioTrobat.calcularDistancia()} kms.
+      `;
+      return alert(missatgeMostrar);
+    } else if (avioTrobat instanceof AvioComercial) {
+      let passatgers = +prompt(
+        "Introdueix el numero de passatgers (Màxim 800))"
+      );
+      if (passatgers > 800)
+        +prompt(
+          "El número de passatgers es superior a la capacitat. Introdueix el numero de passatgers vàlid (Màxim 800))"
+        );
+      missatgeMostrar = `${avioTrobat}
+  -Cost del menjar: ${avioTrobat.calcularCostMenjar(passatgers)}`;
+      return alert(missatgeMostrar);
     } else {
-      switch (tipusAvio) {
-        case "Avioneta":
-          avioTrobat.mostrarAvioneta(avioTrobat);
-          alert("Tipus d'avió: Avioneta")
-          break;
-        case "Avio comercial":
-          avioTrobat.mostrarAvioComercial(avioTrobat);
-          alert("Tipus d'avió: Avió comercial");
-          break;
-        case "Jet privat":
-          avioTrobat.mostrarJetPrivat(avioTrobat);
-          alert("Tipus d'avió: Jet privat");
-          break;
-      }
-      //resetRadios();
-
-      // if ((avions[indexAvioBuscar]) instanceof Avioneta){
-      //   missatgeMostrar = `
-      //   ${avions[indexAvioBuscar]}
-      //   -Temps de neteja: ${avions[indexAvioBuscar].netejar()} minuts de neteja.
-      //   -Distancia que pot recòrrer: ${avions[indexAvioBuscar].calcularDistancia()} kms.
-      //   `;
-      //     return alert(missatgeMostrar);
-
-      // } else if (avions[indexAvioBuscar] instanceof AvioComercial) {
-      //   missatgeMostrar =
-      //     avions[indexAvioBuscar] +
-      //     "\nTemps de neteja: " +
-      //     avions[indexAvioBuscar].netejar() +
-      //     " minuts\n" +
-      //     "Cost del menjar: " +
-      //     avions[indexAvioBuscar].calcularCostMenjar(avions[indexAvioBuscar].numeroPassatgers);
-      //   return alert(missatgeMostrar);
-
-      // } else {
-      //   missatgeMostrar = avions[indexAvioBuscar] + "\nTemps de neteja: " +
-      //   avions[indexAvioBuscar].netejar() +
-      //     "minuts de neteja\n";
-
-      //   return alert(missatgeMostrar);
-
-      // }
+      missatgeMostrar = `
+            ${avioTrobat}
+  -Temps de neteja: ${avioTrobat.netejar()} minuts.
+  
+            `;
+      return alert(missatgeMostrar);
     }
   }
 }
+//
+//tipusAvio = avioTrobat.getClase(avioTrobat); //cridem al metode perque ens trobi el tipus
+//console.log("index avio buscar", indexAvioBuscar);
+
+// if (indexAvioBuscar < 0) {
+//   alert("L'avió introdueit no existeix");
+// } else {
+//   switch (tipusAvio) {
+//     case "Avioneta":
+//       avioTrobat.mostrarAvioneta(avioTrobat);
+//       alert("Tipus d'avió: Avioneta");
+//       break;
+//     case "Avio comercial":
+//       avioTrobat.mostrarAvioComercial(avioTrobat);
+//       alert("Tipus d'avió: Avió comercial");
+//       break;
+//     case "Jet privat":
+//       avioTrobat.mostrarJetPrivat(avioTrobat);
+//       alert("Tipus d'avió: Jet privat");
+//       break;
+//   }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <details style="color: rgb(46, 46, 29); background-color:sandybrown; font-family: Arial, Helvetica, sans-serif;">
+      Fes un programa que contingui la classe Avió i les classes derivades Avió
+      Comercial, <br />
+      Avioneta i Jet privat. Has de programar les opcions:<br />
+      <br>
+      1. Donar d'alta avió.<br />
+      2. Eliminar avió.<br />
+      3. Mostrar avió (quan mostrem un avió, mostrem totes les seves dades i
+      també cridem als mètodes propis d'aquest avió en concret).<br />
+      <br>
+      No s'instanciarà cap objecte de la classe Avió, sinó que només
+      s'instanciaran objectes de les classes derivades.<br />
+
+      Els atributs comuns a totes les classes seran el número de avió, la marca,
+      model, càrrega (en kg) i llargària (en metres).<br />
+
+      S'ha de crear un mètode a la classe adient que permeti calcular els minuts
+      necessaris per netejar l'avió.<br />
+      Per netejar un avió comercial s'ha de multiplicar el llarg de l'avió
+      per<br />
+      10 minuts i afegir un plus de 240 minuts per la part de fora. Per netejar
+      una <br />
+      avioneta s'ha de multiplicar el llarg de l'avioneta per 10 minuts i
+      dividir-ho entre 2.<br />
+      Finalment, per netejar un jet s'ha de multiplicar el llarg del jet per 10
+      minuts,<br />
+      dividir-ho entre 2 i afegir un plus de 15 minuts. També s'ha de crear un
+      mètode a la classe adient que calculi el combustible necessari. <br />
+      Per aquest càlcul s'ha de multiplicar la longitud de l'avió per la càrrega
+      <br />
+      (el resultat seran els litres de combustible necessaris). L'avió comercial
+      té un nombre de persones dintre i el mètode calcularCostMenjar()<br />
+      ha de calcular el cost total del menjar en funció d'aquestes persones,<br />
+      tenint en compte que el menjar de cada persona costa 10 €. L'avioneta pot
+      recórrer una distància en concret en funció del nombre d'hèlixs que
+      tingui.<br />
+      El mètode calcularDistancia() ens ajudarà a fer aquest càlcul tenint en
+      compte que per cada <br />
+      hèlix podem recórrer 1.000 km. El jet privat té un nombre de persones
+      dintre i el mètode calcularCostReserva() ha de calcular<br />
+      el cost de la reserva del jet tenint en compte que per cada persona es
+      paguen 1.000 €.<br />
+      El nombre màxim de passatgers és de 10.
+    </details>
+    
+  <body background="D:\FDLP_Javascript_IT_ACADEMY\FDLP\Exercicis_clase\Ejercicios_M8_2\M8.2_Ex4_Avions\pexels-pixabay-47044.jpg">
+    <h2 style="color: aquamarine;"><u>Sel·lecciona una opció:</u></h2>
+
+<form style="background-color: aquamarine;">
+  <input type="radio" id="alta" name="opcion" value="1" onclick="altaAvio()">
+  <label for="alta">Alta avió</label><br>
+  <input type="radio" id="elimina" name="opcion" value="2" onclick="eliminaAvio()">
+  <label for="eliminao">Eliminar avió</label><br>
+  <input type="radio" id="mostrar" name="opcion" value="3" onclick="mostrarAvio()">
+  <label for="mostrar">Mostrar avió</label><br>
+</form>
+
+
+
+
+    <script src="./js/ClasseAvioR.js"></script>
+    <script src="./js/ClasseAvioComercialR.js"></script>
+    <script src="./js/ClasseAvionetaR.js"></script>
+    <script src="./js/ClasseJetPrivatR.js"></script>
+    <script src="./js/arrayAvionsR.js"></script>
+    <script src="./js/crudR.js"></script>
+  </body>
+</html>

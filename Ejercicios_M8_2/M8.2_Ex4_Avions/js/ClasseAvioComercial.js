@@ -20,10 +20,13 @@ class AvioComercial extends Avio {
     return preuMenjar + " €";
   }
   mostrarAvioComercial(avioTrobat) {
+    let passatgers = +prompt("Introdueix el numero de passatgers)");
+    if (passatgers > avioTrobat.numeroPassatgers)
+      +prompt("El número de passatgers es superior a la capacitat. Introdueix el numero de passatgers vàlid)");
     let missatgeMostrar = ` ${avioTrobat}
   -Temps de neteja:  ${avioTrobat.netejar()} minuts
   -Cost del menjar: ${avioTrobat.calcularCostMenjar(
-     avioTrobat.numeroPassatgers
+    passatgers
    )}`;
     return alert(missatgeMostrar);
   }

@@ -14,6 +14,7 @@ class JetPrivat extends Avio {
     return netejaJetPrivat;
   }
   calcularCostReserva(numeroPassatgers){
+    
     let preuReserva = numeroPassatgers * 1000;
     return preuReserva + " €";
   }
@@ -23,10 +24,12 @@ class JetPrivat extends Avio {
     return alert(missatgeMostrar);
   }
   toString() {
+    let passatgers = +prompt("Introdueix el numero de passatgers (Màxim 10)")
+    if (passatgers > 10) +prompt("Introdueix el numero de passatgers (Màxim 10)");
     let missatge = super.toString();
     missatge += `
   -Numero de passatgers: ${this.numeroPassatgers} 
-  -Cost de la reserva: ${this.calcularCostReserva(this.numeroPassatgers)}`;
+  -Cost de la reserva: ${this.calcularCostReserva(passatgers)}`;
     return missatge;
   }
 }
