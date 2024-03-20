@@ -47,13 +47,9 @@ function calcularMaterial() {
   reservar();
 }
 
-
-
 function forecast() {
- 
   let alturaOlas = +prompt("¿Qué altura tienen las olas hoy en metros?");
   while (alturaOlas === null || isNaN(alturaOlas) || alturaOlas < 0)
-    
     alert("Por favor, introduce una altura de las olas en metros");
 
   alert(
@@ -71,7 +67,7 @@ function reservar() {
     "¿Qué tipo de tabla quieres reservar?\n 1-> Fibra\n 2-> Espuma"
   );
   console.log("tablaSurf", tablaSurf);
-  
+
   while (tablaSurf !== 1 && tablaSurf !== 2) {
     tablaSurf = +prompt(
       "El valor introducido no es correcto\n" +
@@ -83,10 +79,12 @@ function reservar() {
   tiempoReserva =
     +prompt("Indicanos cuánto tiempo en minutos quieres reservar: ") / 60;
   console.log("Tiempo Reserva", tiempoReserva);
-  alert(tablaSurf === 1     //canviat if per ternari cridant les 2 funcions
-    ? calcularPrecio(tiempoReserva, 1)
-    : calcularPrecio(tiempoReserva, 2));
- // alert(calcularPrecio(tiempoReserva, tablaSurf === 1 ? 1 : 2)); //aixo canvia el ternari de sobre, es equivalent
+  alert(
+    tablaSurf === 1 //canviat if per ternari cridant les 2 funcions
+      ? calcularPrecio(tiempoReserva, 1)
+      : calcularPrecio(tiempoReserva, 2)
+  );
+  // alert(calcularPrecio(tiempoReserva, tablaSurf === 1 ? 1 : 2)); //aixo canvia el ternari de sobre, es equivalent
   main();
 }
 
