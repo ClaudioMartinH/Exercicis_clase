@@ -41,7 +41,12 @@ function altaEdifici() {
           superficieNova = +prompt("Indica la superficie en m2");
           numPlantesNou = +prompt("Indica el numero de plantes");
           let pacientsNou = +prompt("Indica el numero de pacients");
-          nouHospital = crearHospital(nomBuscar, numPlantesNou, superficieNova, pacientsNou);
+          nouHospital = crearHospital(
+            nomBuscar,
+            numPlantesNou,
+            superficieNova,
+            pacientsNou
+          );
           edificis.push(nouHospital);
           console.table(edificis);
           alert(edificis[edificis.length - 1]);
@@ -58,12 +63,12 @@ function altaEdifici() {
           );
           edificis.push(nouHotel);
           console.table(edificis);
-          alert(edificis[edificis.length-1]);
+          alert(edificis[edificis.length - 1]);
           break;
         case 3:
           superficieNova = +prompt("Indica la superficie en m2");
           numPlantesNou = +prompt("Indica el numero de plantes");
-          nouCinema = crearCinema(nomBuscar, numPlantesNou ,superficieNova)
+          nouCinema = crearCinema(nomBuscar, numPlantesNou, superficieNova);
           edificis.push(nouCinema);
           console.table(edificis);
           alert(edificis[edificis.length - 1]);
@@ -73,13 +78,80 @@ function altaEdifici() {
   }
 }
 function mostrarEdifici() {
+  let missatge = "";
   let nomBuscar = prompt(
     "Introdueix el nom de l'edifici que vols buscar"
   ).toUpperCase();
   let indexEdificiBuscar = buscarEdifici(nomBuscar);
+  let edificiTrobat = edificis[indexEdificiBuscar];
   console.log("index cerca", indexEdificiBuscar);
   if (indexEdificiBuscar < 0) alert("L'edifici introduit no existeix");
-  else alert(edificis[indexEdificiBuscar]);
+  else {
+    if (edificiTrobat instanceof Hospital) {
+      do
+        pacientsNou = +prompt(
+          "Introdueix el numero de pacients",
+          edificiTrobat.pacients
+        );
+      while (
+        pacientsNou <= 0 ||
+        pacientsNou === null ||
+        pacientsNou === undefined ||
+        isNaN(pacientsNou) ||
+        pacientsNou === ""
+      );
+      missatge += `
+    ${edificiTrobat.toString(pacientsNou)}
+    TIPUS EDIFICI       HOSPITAL
+    AVUI HEM REPARTIT   ${edificiTrobat.repartirDinar(pacientsNou)} DINARS
+    COST NETEJA         ${edificiTrobat.netejar()}
+    COST VIGILANCIA     ${edificiTrobat.calcularCostVigilancia()}
+  `;
+      alert(missatge);
+    } else if (edificiTrobat instanceof Hotel) {
+      missatge += `
+    ${edificiTrobat}
+    TIPUS EDIFICI       HOTEL
+    COST NETEJA         ${edificiTrobat.netejar()}
+    COST VIGILANCIA     ${edificiTrobat.calcularCostVigilancia()}
+    PERSONAL SERVEI     ${edificiTrobat.calcularPersonalServei()}
+  `;
+      alert(missatge);
+    } else {
+      let preu = 0;
+      let numAssistents = +prompt(
+        "Introdueix el numero d'espectadors de la sessió (Màxim 150)"
+      );
+      if (
+        numAssistents <= 0 ||
+        numAssistents === null ||
+        numAssistents === undefined ||
+        isNaN(numAssistents) ||
+        numAssistents === ""
+      )
+        +prompt("Introdueix un numero vàlid d'espectadors (Màxim 150)");
+      else {
+        preu = +prompt("Introdueix el preu de la sessió en € sense el simbol");
+        if (
+          preu <= 0 ||
+          preu === null ||
+          preu === undefined ||
+          isNaN(preu) ||
+          preu === ""
+        )
+          +prompt("Introdueix un preu vàlid");
+      }
+
+      missatge += `
+      ${edificiTrobat}
+    TIPUS EDIFICI       CINEMA
+    COST NETEJA         ${edificiTrobat.netejar()}
+    COST VIGILANCIA     ${edificiTrobat.calcularCostVigilancia()}
+    INGRESSOS SESSIÓ    ${edificiTrobat.projectarSessio(numAssistents, preu)}
+    `;
+      alert(missatge);
+    }
+  }
 }
 function eliminarEdifici() {
   let nomEdifici = prompt(

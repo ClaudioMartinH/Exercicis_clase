@@ -43,9 +43,7 @@ class Hotel extends Edifici {
   toString() {
     let missatge = super.toString();
     missatge += `
-    COST NETEJA         ${this.netejar()}
-    COST VIGILANCIA     ${this.calcularCostVigilancia()}
-    PERSONAL SERVEI     ${this.calcularPersonalServei()}
+    HABITACIONS     ${this.habitacions}
   `;
     return missatge;
   }

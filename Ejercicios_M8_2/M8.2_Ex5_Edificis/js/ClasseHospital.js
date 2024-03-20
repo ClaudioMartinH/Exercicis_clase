@@ -31,8 +31,16 @@ class Hospital extends Edifici {
   setNumeroPacients(nouNumeroPacients) {
     this.pacients = nouNumeroPacients;
   }
-  repartirDinar() {
-    return this.pacients * 3;
+  repartirDinar(pacientsNou) {
+    //preguntar pacientes
+    // let pacientsNou = 0;
+    
+    if (pacientsNou !== this.pacients)
+      alert(
+        "El numero de pacients ha canviat, el nou numero de pacients és " +
+          pacientsNou
+      );
+    return pacientsNou * 3;
   }
   netejar() {
     let netejaHospital = super.netejar();
@@ -43,14 +51,10 @@ class Hospital extends Edifici {
     return costVigilarHospital + " €";
   }
 
-  toString() {
+  toString(pacientsNou) {
     let missatge = super.toString();
     missatge += `
-    COST NETEJA         ${this.netejar()}
-    COST VIGILANCIA     ${this.calcularCostVigilancia()}
-    AVUI HEM REPARTIT   ${this.repartirDinar()} DINARS
-  `;
+    PACIENTS            ${pacientsNou}`;
     return missatge;
   }
-
 }
