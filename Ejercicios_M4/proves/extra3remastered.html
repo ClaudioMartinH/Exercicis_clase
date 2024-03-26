@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOC PEDRA PAPER TISSORA</title>
+</head>
+<h1>Anem a jugar a pedra, paper, tissores</h1>
+<h4>Hauràs de triar una de les següents opcions per jugar contra mi</h4>
+<p id="1">Pedra</p>
+<p id="2">Paper</p>
+<p id="3">Tissores</p>
+<p>Introdueix la teva tria: <input type="number" id="numero"></p>
+<button onclick="jocPedraPaperTissores()">Clicka aqui per jugar, sort!</button>
+<p id="missatge"></p>
+<body>
+    <script>
+        function jocPedraPaperTissores(){
+            let numeroTriat = parseInt(document.getElementById("numero").value);
+            console.log("El jugador tria: ", numeroTriat, typeof(numeroTriat));
+            let numeroOrdinador = Math.floor(Math.random()*(4 - 1) + 1);
+            console.log("L'ordinador ha triat: ", numeroOrdinador, typeof(numeroOrdinador));
+            let missatge = document.getElementById("missatge").innerHTML;
+
+
+            let joc = (numeroTriat == 1) && (numeroOrdinador == 1) ? missatge = " Hem empatat " : 
+                      (numeroTriat == 1) && (numeroOrdinador == 2) ? missatge =  " Has tret pedra i jo paper; He guanyat! " :
+                      (numeroTriat == 1) && (numeroOrdinador == 3) ? missatge = " Has tret pedra i jo tissores; Has guanyat! " :
+                      (numeroTriat == 2) && (numeroOrdinador == 1) ? missatge = " Has tret paper i jo pedra; He guanyat! " :
+                      (numeroTriat == 2) && (numeroOrdinador == 2) ? missatge = " Hem empatat " :
+                      (numeroTriat == 2) && (numeroOrdinador == 3) ? missatge = " Has tret paper i jo tissores; Has guanyat! " :
+                      (numeroTriat == 3) && (numeroOrdinador == 1) ? missatge = " Has tret tissores i jo pedra; He guanyat! " :
+                      (numeroTriat == 3) && (numeroOrdinador == 2) ? missatge = " Has tret tissores i jo paper; Has guanyat! " :
+                      (numeroTriat == 3) && (numeroOrdinador == 3) ? missatge = " Hem empatat " : 
+                      missatge = " Veig que no tens ganes de jugar. Adeu! ";
+
+            jocPedraPaperTissores(joc);
+            document.getElementById()
+        }
+        
+
+    </script>
+</body>
+</html>

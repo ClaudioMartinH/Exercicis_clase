@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pintem una L</title>
+    <h3>Avui dibuixarem una L de mides 5 x 3</h3>
+    <button onclick="dibuixaL()">Clicka per dibuixar</button>
+    <p id="message"></p>
+  </head>
+
+  <body>
+    <script>
+      function dibuixaL() {
+        let i = 0;
+        let j = 0;
+        let simbolDibuix = "*";
+        let areaL = "";
+        let altL = 5;
+        let midaHoritzontal = 3;
+        let areaH = "";
+
+        for (i = 2; i <= altL; i++) {
+          areaL += simbolDibuix + "<br>";
+        }
+        for (j = 0; j < midaHoritzontal; j++) {
+          areaH += simbolDibuix;
+        }
+
+        document.getElementById("message").innerHTML = areaL + areaH;
+      }
+    </script>
+  </body>
+</html>

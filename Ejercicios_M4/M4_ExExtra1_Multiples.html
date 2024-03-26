@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros multiples o no</title>
+</head>
+<h1></h1>
+<h2>Introdueix dos numeros i et diré si són multiples o no</h2>
+<h3>Et recordo que el divisor ha d'estar entre 2 i 7</h3>
+<p >Introdueix el primer numero: <input type="number" id="numero1"></p>
+<p >Introdueix el segon numero: <input type="number" id="numero2"></p>
+<button onclick="calculo()">Click para resultado</button>
+<p id="missatge"></p>
+<body>
+    <script>
+        function calculo() {
+        let dividendo = parseInt(document.getElementById("numero1").value);
+        console.log("dividendo", dividendo, typeof(dividendo));
+        let divisor = parseInt(document.getElementById("numero2").value);
+        console.log("divisor", divisor, typeof(divisor));
+        let resto = parseInt(dividendo%divisor);
+        let mensaje = "";
+        
+            if  (divisor >=2 && divisor <=7) {
+                if (resto === 0){
+                    mensaje = divisor + " i " + dividendo + " són multiples ";
+                    document.getElementById("missatge").innerHTML = mensaje;
+                } else {
+                    mensaje = divisor + " i " + dividendo + " no són multiples ";
+                    document.getElementById("missatge").innerHTML = mensaje;
+                }
+            } else {
+                alert("Els numeros introduïts no són correctes, si us plau, torna a intentar-ho"); 
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>

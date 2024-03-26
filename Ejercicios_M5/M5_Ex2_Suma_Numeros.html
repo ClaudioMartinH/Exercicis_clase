@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M5_Ex_2_SumaNumeros</title>
+    <h1>Suma del valors entre dos numeros</h1>
+    <h3>Introdueix dos numeros i el programa et sumarà el seus valors</h3>
+    <h3>i els valors dels numeros compressos entre ells</h3>
+    <p>Introdueix el primer numero <input type="number" id="num1"></p>
+    <p>Introdueix el segon numero <input type="number" id="num2"></p>
+    <button onclick="sumaValors()">Clicka per sumar</button>
+    <p id="resultat"></p>
+</head>
+<body>
+
+    <script>
+        function sumaValors(){
+
+        let primerNum = parseInt(document.getElementById("num1").value);
+        console.log("Primer numero", primerNum, typeof(primerNum));
+        let segonNum = parseInt(document.getElementById("num2").value);
+        console.log("Segon numero", segonNum, typeof(segonNum));
+        let suma = 0;
+        console.log("suma", suma, typeof(suma));
+        let i = 0;
+
+            for (i = primerNum; i <= segonNum; i++) {
+                suma = suma += i;
+                console.log(suma);
+            }
+            document.getElementById("resultat").innerHTML = "El resultat de la suma dels valors és: " + suma;
+            console.log(suma);
+            
+
+        }
+        
+    </script>
+    
+</body>
+</html>

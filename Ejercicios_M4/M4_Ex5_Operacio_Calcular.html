@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculem</title>
+</head>
+<h1>Introdueix dos números i el seu operador</h1>
+
+<body>
+    <p>Introdueix el primer número<input type="Number" id="numero1" /></p>
+    <p>Introdueix el segon número<input type="Number" id="numero2" /></p>
+    <hr />
+    <p>
+        Introdueix l'operador desitjat<input type="text" id="operadorMatem" />
+    </p>
+    <button onclick="operacioMates()">Operem</button>
+    <p id="mensaje"></p>
+    <script>
+        function operacioMates() {
+            let primerNumero = parseInt(document.getElementById("numero1").value);
+            console.log("primerNumero", primerNumero);
+            let segonNumero = parseInt(document.getElementById("numero2").value);
+            console.log("segundonumero", segonNumero);
+            let operador = document.getElementById("operadorMatem").value;
+            console.log("operadorMatem", operador);
+            switch (operador) {
+                case "+":
+                    document.getElementById("mensaje").innerHTML =
+                        primerNumero + segonNumero;
+                    break;
+                case "-":
+                    document.getElementById("mensaje").innerHTML =
+                        primerNumero - segonNumero;
+                    break;
+                case "*":
+                    document.getElementById("mensaje").innerHTML =
+                        primerNumero * segonNumero;
+                    break;
+                case "/":
+                    document.getElementById("mensaje").innerHTML =
+                        primerNumero / segonNumero;
+                    break;
+                default:
+                    document.getElementById("mensaje").innerHTML =
+                        "Això no és un operador ";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+
+function numeroLletra(){
+    let numero = parseInt(document.getElementById("numero").value);
+    console.log("numero", numero, typeof(numero))
+    let lletra = "";
+    let mensaje = 
+         if (numero<=1 && numero>=10){      
+            switch (numero){
+                case 1:
+                numero = 1;
+                lletra = "U";
+                break;
+                case 2:
+                numero = 2;
+                lletra = "Dos";
+                break;
+                case 3:
+                numero = 3;
+                lletra = "Tres";
+                break;
+                case 4:
+                numero = 4;
+                lletra = "Quatre";
+                break;
+                case 5:
+                numero = 5;
+                lletra = "Cinc";
+                break;
+                case 6:
+                numero = 6; 
+                lletra = "Sis";
+                break;
+                case 7:
+                numero = 7;
+                lletra = "Set";
+                break;
+                case 8:
+                numero = 8;
+                lletra = "Vuit";
+                break;
+                case 9:
+                numero = 9;
+                lletra = "Nou";
+                break;
+                case 10:
+                numero = 10;
+                lletra = "Deu";
+                break;
+                default :
+               
+                alert("El número introduït es " + numero + " i en lletres es " + lletra);
+            }
+        } else { alert("Has d'introduïr un número entre 1 i 10");}  
+}
+    

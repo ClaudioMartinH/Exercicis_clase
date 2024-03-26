@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quin nivell d'experiència tens?</title>
+</head>
+<body>
+    <h1>Introdueix les següents dades: </h1>
+    <p>Introdueix el teu nom: <input type="text" id="nom"></p>
+    <p>Introdueix el temps que portes a l'empresa: <input type="number" id="anys"></p>
+    <button onclick="experiencia()">Clicka aqui</button>
+    <p id="missatge"></p>
+    
+   
+    <script>
+        function experiencia() {
+            let nom = document.getElementById("nom").value;
+            let anys = document.getElementById("anys").value; 
+            let mensaje = "Hola "
+                        
+            if (anys < 2) {
+                document.getElementById("missatge").innerHTML = mensaje + nom + "Tens Nivell Principiant ";
+            } else if (anys >= 2 && anys <= 4) {
+                document.getElementById("missatge").innerHTML = mensaje + nom + " Tens Nivell Intermedi";   
+            } else if (anys >= 4 && anys <= 7) {
+                document.getElementById("missatge").innerHTML = mensaje + nom + " Tens Nivell Avançat";
+            } else if (anys >= 7 && anys <= 10) {
+                document.getElementById("missatge").innerHTML = mensaje + nom + " Tens Nivell Expert";
+            } else { document.getElementById("missatge").innerHTML = mensaje + nom + " Tens Nivell Guru";
+            }
+                   
+
+        }
+
+    </script>
+</body>
+</html>
+

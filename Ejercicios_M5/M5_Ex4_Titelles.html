@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titelles</title>
+    <h1>Centre de reserves</h1>
+    <h3>Haurà de dir quants nens vindran</h3>
+    <h3>Els seus noms</h3>
+    <h4>I per finalitzar, les edats (entre 5 i 12 anys)</h4>
+    <button onclick="reservaNens()">Clicka aquí</button>
+    <p id="reserva"></p>
+</head>
+<body>
+    <script>
+        function reservaNens(){
+            let numeroNens = parseInt(prompt("Digues quants nens vindran?"));
+            let i = 0;
+            let sumaEdats = 0;
+            const edat = [];
+            let edatIntroduida = 0;
+
+            while (i < numeroNens){
+                edatIntroduida = parseInt(prompt("Introdueix l'edat dels nens?", 5));
+                if (edatIntroduida >=5 && edatIntroduida <=12) {
+                    console.log("edatIntroduida", edatIntroduida, typeof(edatIntroduida));
+                    edat.push(edatIntroduida);
+                    sumaEdats += edatIntroduida;
+                    i++;
+                } else {
+                    alert("introdueix una edat entre 5 i 12 anys");
+                }
+            }
+            console.table(edat);
+            let mitjanaEdats = (sumaEdats / numeroNens).toFixed(2);
+
+            document.getElementById("reserva").innerHTML = "L'edat mitja dels nens és :" + mitjanaEdats + "anys";
+                
+                    
+                
+            }
+    </script>
+</body>
+</html>

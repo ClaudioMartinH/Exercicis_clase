@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Verificar la comanda</title>
+   <p><label for="plato">Selecciona el plato que desees</label>
+      <select id="plato">
+         <option value="1">Carne</option>
+         <option value="2">Pasta (con gluten)</option>
+         <option value="3" selected>Risoto (con lactosa)</option>
+      </select>
+   </p>
+   <h4>Intolerancias</h4>
+   <p><label for="vegano">Vegano</label>
+      <input id="vegano" type="checkbox">
+   </p>
+   <p><label for="gluten">Intolerancia al gluten</label>
+      <input id="gluten" type="checkbox">
+   </p>
+   <p><label for="lactosa">Intolerancia a la lactosa</label>
+      <input id="lactosa" type="checkbox">
+   </p>
+   <p><button onclick="verificar()">Verificar</button>
+   <h3 id="resultado"></h3>
+   </p>
+
+</head>
+
+<body>
+   <script>
+      function verificar() {
+         console.clear(); //para que cuando hagas click en la funcion se borre la consola
+         let platoSeleccionado = parseInt(document.getElementById("plato").value);  // traduce de texto "1" a numero 1
+         console.log("plato seleccionado", platoSeleccionado, typeof (platoSeleccionado));
+         let esVegano = document.getElementById("vegano").checked;
+         console.log("Es vegano", esVegano, typeof (esVegano));
+         let sinGluten = document.getElementById("gluten").checked;
+         console.log("Sin gluten", sinGluten, typeof (sinGluten));
+         let sinLactosa = document.getElementById("lactosa").checked;
+         console.log("Sin lactosa", sinLactosa, typeof (sinLactosa));
+         let resultadoSi = "Perfecte, comanda correcta ";
+         let resultadoNo = "Vosté no pot menjar aquest plat ";
+
+         switch (platoSeleccionado) {
+            case 1: if (esVegano) {
+               document.getElementById("resultado").innerHTML = resultadoNo
+            } else {
+               document.getElementById("resultado").innerHTML = resultadoSi
+            } break;
+            case 2: if (sinGluten) {
+               document.getElementById("resultado").innerHTML = resultadoNo
+            } else {
+               document.getElementById("resultado").innerHTML = resultadoSi
+            } break;
+            case 3: if (sinLactosa || esVegano) {
+               document.getElementById("resultado").innerHTML = resultadoNo
+            } else {
+               document.getElementById("resultado").innerHTML = resultadoSi
+            } break;
+            default: document.getElementById("resultado").innerHTML = "Selecciona quina opció";
+               break;
+         }
+      }
+
+
+   </script>
+
+</body>
+
+</html>

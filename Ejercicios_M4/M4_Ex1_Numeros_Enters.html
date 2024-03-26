@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUMERO MÉS GRAN</title>
+</head>
+<body>
+    <h1>Introdueix dos números i et diré quin és més gran</h1>
+    <p >Introdueix el primer numero: <input type="number" id="numero1"></p>
+    <p >Introdueix el segon numero: <input type="number" id="numero2"></p>
+    <p id="mensaje"></p>
+    <hr>
+    <button onclick="mesGran()">Quin és més gran?</button>
+    <script>
+        function mesGran(){
+            let num1 = parseInt(document.getElementById("numero1").value);
+            let num2 = parseInt(document.getElementById("numero2").value);
+            let missatge = "El numero ";
+            
+            if (num1 < num2) { 
+                document.getElementById("mensaje").innerHTML = missatge + num2 + " és més gran ";                   
+            } else if (num1 > num2) { 
+                document.getElementById("mensaje").innerHTML = missatge + num1 + " és més gran ";             
+            } else { 
+                document.getElementById("mensaje").innerHTML = missatge + num1 + " és igual que " + num2;               
+            }
+            
+        }
+    </script>
+</body>
+</html>

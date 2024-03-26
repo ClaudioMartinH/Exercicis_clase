@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paraules boniques</title>
+    <h1>Les paraules boniques del diccionari</h1>
+    
+    <button onclick="paraulaBonica()">Juguem?</button>
+    <p id="missatge"></p>
+</head>
+<body>
+    <script>
+        function paraulaBonica(){
+            const paraulaXula = [];
+            let paraulaIntroduida = "";
+            let longitudParaula = paraulaIntroduida.length;
+            console.log('longitudParaula', longitudParaula, typeof(longitudParaula));
+            let lletraInicialParaula      
+            
+            while (paraulaXula.length < 3){
+                paraulaIntroduida = prompt("Introdueïx una paraula", " ");
+                let longitudParaula = paraulaIntroduida.length;
+                lletraInicialParaula = paraulaIntroduida.charAt(0).toUpperCase(); //toUpperCase per majuscules/minuscules
+                if ((longitudParaula === 9 && (lletraInicialParaula == "H")) || ((longitudParaula === 5 ) && (lletraInicialParaula == "P"))) {
+                paraulaXula.push(paraulaIntroduida);
+                }
+                console.table(paraulaXula);
+            }
+                document.getElementById("missatge").innerHTML = "Les paraules boniques que has introduït son: " + paraulaXula;
+        }
+    
+    </script>
+</body>
+</html>

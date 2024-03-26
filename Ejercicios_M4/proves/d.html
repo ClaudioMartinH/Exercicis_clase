@@ -1,0 +1,23 @@
+switch (numeroIntroducido) {
+    case 1 : if (unidad >=9 && decena === 0){
+            //mensaje = unidadesLetra[unidad]; 
+            console.log(mensaje); 
+           alert(" Se traduce como " + unidadesLetra[unidad-1]);  
+            }
+        break;
+    case 2 : if (decena <= 1 && decena >=9){
+            //mensaje = decenasLetra[decena];
+            console.log(mensaje);
+            alert(" Se traduce como " +  decenasLetra[decena-1]);
+            }    
+        break;
+    case 3 : if ((unidad <= 1 && unidad >=9) && (decena <=1 && decena >=9)){
+            //mensaje = decenasLetra[decena] + "y" + unidadesLetra[unidad];
+            console.log(mensaje);
+            alert("Se traduce como " + decenasLetra[decena-1] + "y" + unidadesLetra[unidad-1]);
+            } 
+        break;          
+    default: alert("El numero introducido no está en el rango pedido, vuelve a intentarlo");
+            console.log(mensaje);  
+        break;      
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paraules boniques</title>
+    <h1>Les paraules boniques del diccionari</h1>
+    <p>Introdueix la paraula que vulguis comprovar<input type="text" id="paraula" ></p>
+    <button onclick="paraulaBonica()">Comprovem-la</button>
+    <hr>
+    <p id="missatge"></p>
+</head>
+<body>
+    <script>
+        function paraulaBonica(){
+            let paraulaIntroduida = document.getElementById("paraula").value;
+            console.log('paraulaIntroduida', paraulaIntroduida, typeof(paraulaIntroduida));
+            let longitudParaula = paraulaIntroduida.length;
+            console.log('longitudParaula', longitudParaula, typeof(longitudParaula));
+            let lletraInicialParaula = paraulaIntroduida.charAt(0).toUpperCase();       //toUpperCase per majuscules/minuscules
+            let missatges = "La paraula que has introduït ";
+
+            if ((longitudParaula === 9) && (lletraInicialParaula == "H")) {             
+                document.getElementById("missatge").innerHTML =  missatges + "és bonica";
+            } else if ((longitudParaula === 5 ) && (lletraInicialParaula == "P")) {     
+                document.getElementById("missatge").innerHTML =  missatges + "és bonica";                    
+            } else {
+                document.getElementById("missatge").innerHTML =  missatges + "no és bonica";
+            }
+        }
+    </script>
+</body>
+</html>

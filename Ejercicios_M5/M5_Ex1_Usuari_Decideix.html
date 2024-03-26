@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuari Decideix</title>
+    <h1>Aquí l'usuari/a decideix</h1>
+    <h3>Haurà de dir quant noms vol introduïr</h3>
+    <h3>i a continuació anomenar-los</h3>
+    <h4>Juguem?</h4>
+    <button onclick="usuariDecideix()">Clicka aquí</button>
+    <p id="nomsEnA"></p>
+</head>
+<body>
+    <script>
+        function usuariDecideix(){
+            const noms = [];
+            let numeroNoms = parseInt(prompt("Digues quants noms vols introduïr?"));
+            let i = 0;
+            let nomIntroduit = " ";
+            const nomsPerA = [];
+
+                for (i = 1; i <= numeroNoms; i++) {
+                    nomIntroduit = prompt("Digues un nom per introduïr");
+                    noms.push(nomIntroduit);
+                    console.table(noms);
+                }
+                for (i = 0; i < noms.length; i++) {
+                    if (noms[i].charAt(0).toUpperCase()=="A") {
+                        nomsPerA.push(noms[i])
+                    }
+                }
+                document.getElementById("nomsEnA").innerHTML = "Els noms que comencen per A son: " + nomsPerA.join(" , ");
+                alert("Aquests noms comencen per A: " + nomsPerA.join(" , "));
+            
+        }
+
+    </script>
+    
+</body>
+</html>

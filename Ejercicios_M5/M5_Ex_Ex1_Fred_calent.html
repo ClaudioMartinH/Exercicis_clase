@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juguem al fred-calent</title>
+    <h2>Hauràs d'introduïr numeros fins que encertis el meu</h2>
+    <h2>Els numeros hauran d'estar entre 1 i 500 per poder jugar</h2>
+    <h4>Introdueix el numero que vulguis<input type="number" id="numUs" /></h4>
+    <button onclick="comprovar()">Clica per jugar</button>
+    <p id="message"></p>
+  </head>
+
+  <body>
+    <script>
+      function comprovar() {
+        let numeroMaquina = Math.floor(Math.random() * 500 - 1) + 1;
+        let numeroUsuari = parseInt(document.getElementById("numUs").value);
+        let resposta = "";
+        let fredGran = "fred-fred, el numero és massa gran";
+        let fredPetit = "fred-fred, el numero és massa petit";
+        let tebiGran = "tebi-tebi, el numero és massa gran";
+        let tebiPetit = "tebi-tebi, el numero és massa petit";
+        let calentGran = "calent-calent, el numero és massa gran";
+        let calentPetit = "calent-calent, el numero és massa petit";
+
+        while (
+          numeroUsuari > 500 ||
+          isNaN(numeroUsuari) ||
+          numeroUsuari === undefined ||
+          numeroUsuari === null
+        ) {
+          numeroUsuari = parseInt(
+            prompt(
+              "Introdueïx un numero valid si us plau. Introdueix un altre numero si us plau"
+            )
+          );
+        }
+
+        while (numeroUsuari != numeroMaquina) {
+          let diferencia = numeroMaquina - numeroUsuari;
+          console.log("diferencia ", diferencia);
+          console.log(
+            "numeroMaquina",
+            numeroMaquina,
+            " vs ",
+            "numeroUsuari",
+            numeroUsuari
+          );
+          if (diferencia <= -50) {
+            resposta = fredGran;
+            alert(resposta);
+          } else if (diferencia >= 50) {
+            resposta = fredPetit;
+            alert(resposta);
+          } else if (diferencia > -50 && diferencia <= -15) {
+            resposta = tebiGran;
+            alert(resposta);
+          } else if (diferencia < 50 && diferencia >= 15) {
+            resposta = tebiPetit;
+            alert(resposta);
+          } else if (diferencia > -15 && diferencia <= -1) {
+            resposta = calentGran;
+            alert(resposta);
+          } else {
+            resposta = calentPetit;
+            alert(resposta);
+          }
+
+          if (diferencia != 0) {
+            numeroUsuari = parseInt(
+              prompt("Introdueix un altre numero si us plau")
+            );
+          }
+        }
+
+        if (numeroUsuari === numeroMaquina) {
+          resposta = "Felicitats!!! L'has encertat!!";
+          alert(resposta);
+        }
+      }
+    </script>
+  </body>
+</html>

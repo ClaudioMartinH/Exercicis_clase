@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de números</title>
+</head>
+<body>
+    <h2>Traductor de números del 1 al 99</h2>
+    <label for="numero">Introduce un número (1-99):</label>
+    <input type="number" id="numero">
+    <br>
+    <button onclick="traducirNumero()">Traducir</button>
+    <p id="resultado"></p>
+
+    <script>
+        function traducirNumero() {
+            var numerosDel1Al19 = ['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve'];
+            var decenas = ['', 'dieci', 'veinti', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+
+            var numero = parseInt(document.getElementById("numero").value);
+
+            if (isNaN(numero) || numero < 1 || numero > 99) {
+                document.getElementById("resultado").textContent = "Por favor, introduce un número válido (1-99).";
+                return;
+            }
+
+            var traduccion = '';
+
+            if (numero <= 19) {
+                traduccion = numerosDel1Al19[numero - 1];
+            } else {
+                var decena = Math.floor(numero / 10);
+                var unidad = numero % 10;
+
+                if (unidad === 0) {
+                    traduccion = decenas[decena];
+                } else {
+                    traduccion = decenas[decena] + ' y ' + numerosDel1Al19[unidad - 1];
+                }
+            }
+
+            document.getElementById("resultado").textContent = "El número " + numero + " se traduce como: " + traduccion;
+        }
+    </script>
+</body>
+</html>

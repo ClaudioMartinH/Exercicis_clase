@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h3>Introduce un numero y te diré si es par o impar</h3>
+    <p>Introduce un numero<input type="number" id="numero"></p>
+    <button onclick="comprobarNumero()">Click para comprobar</button>
+    <p id="mensaje"></p>
+</head>
+<body>
+    <script>
+        function comprobarNumero(){
+        let numeroIntroducido = parseInt(document.getElementById("numero").value);
+        let mensajeMuestra ="";
+        if (numeroIntroducido %2 == 0){
+            mensajeMuestra = "El número introducido es par ";
+            document.getElementById("mensaje").innerHTML = mensajeMuestra;
+        } else {
+            mensajeMuestra = "El número introducido no es par, es impar ";
+            document.getElementById("mensaje").innerHTML = mensajeMuestra;
+        }
+        
+        }
+
+    </script>
+</body>
+</html>

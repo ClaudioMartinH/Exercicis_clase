@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Realitzar un joc per endevinar un nombre aleatori N, entre 1 i 500.
+        let numeroOrdinador = Math.floor(Math.random()*(500 - 1)+1);
+        console.log(numeroOrdinador);
+        let numeroJugador = Number(prompt("Introdueix un numero entre 1 i 500"), " ");
+        console.log(numeroJugador);
+
+//Si la distància entre el nombre a endevinar i el de l'usuari/ària és de 50 o més, el programa haurà de dir:
+        function fredFred() {
+            let fred = false;
+            fred = (numeroJugador >= (numeroOrdinador + 50)) ? true : false;
+            return fred;
+        }
+//“Fred, fred: el teu número és més gran “ o “Fred, fred: el teu número és més petit “
+
+//Si la distància entre el nombre a endevinar i el de l'usuari/ària està entre 15 i 50, el programa haurà de dir:
+        function tebiTebiGran() {
+            let tebiGran = false;
+            tebiGran = (numeroJugador <= (numeroOrdinador + 50)) ? true : false;
+            return tebiGran;
+        }
+        function tebiTebiPetit() {
+            let tebiPetit = false;
+            tebiPetit = (numeroJugador >= (numeroOrdinador + 15)) ? true : false;
+            return tebiPetit;
+        }
+//“Tebi, Tebi: el teu número és més gran “ o “Tebi, Tebi: el teu número és més petit “ 
+
+//I si la distància entre el nombre a endevinar i el de l'usuari/ària i si la distància és menor a 15, el programa haurà de dir:
+
+//“Calent, calent: el teu número és més gran “ o “Calent, calent: el teu número és més petit “
+
+//El procés acaba quan l'usuari/ària encerta.
+
+
+    </script>
+</body>
+</html>

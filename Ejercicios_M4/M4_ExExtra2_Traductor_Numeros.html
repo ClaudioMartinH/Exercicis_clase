@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de numeros</title>
+</head>
+<h1>Bienvenidos al traductor de numeros</h1>
+<p><i>Dime el numero que quieras y te lo traduciré a letras</i></p>
+<p><strong>Recuerda que los numeros deben estar entre el 1 y el 99</strong></p>
+<p>Introduce un numero<input type="number" id="numero"></p>
+<button onclick="numeroTraducido()">Click para traducir</button>
+<body>
+    <script>
+        function numeroTraducido(){
+
+            let unidadesLetra = ["","uno","dos","tres","cuatro","cinco","seis","siete","ocho",
+                                "nueve","Once","Doce","Trece","Catorce","Quince","Dieci"];
+            let decenasLetra = ["Veinti","Diez","Veinte","Treinta","Cuarenta","Cincuenta",
+                                "Sesenta","Setenta","Ochenta","Noventa"];
+            let numeroIntroducido = parseInt(document.getElementById("numero").value);
+            console.log(numeroIntroducido);
+            let decena = parseInt(numeroIntroducido / 10);
+            console.log(decena);
+            let unidad = parseInt(numeroIntroducido % 10);
+            console.log(unidad);
+            let decenas = decenasLetra[decena];
+            console.log(decenas);
+            let unidades = unidadesLetra[unidad];
+            console.log(unidades);
+
+            if ((unidad >= 1 && unidad <= 9) && decena === 0){                                                      //unidades puras
+                alert("El numero se traduce como " + unidadesLetra[unidad]);
+            } else if (unidad === 0 && (decena >= 1 && decena <= 9)){                                               //decenas puras
+                alert("El numero se traduce como " + decenasLetra[decena]);
+            } else if ((unidad >= 1 && unidad <= 5) && (decena === 1 )){                                            //once a quince
+                alert("El numero se traduce como "+ unidadesLetra[unidad + 9]);
+            } else if ((unidad >= 6 && unidad <= 9) && (decena === 1 )){                                            //quince a diecinueve
+                alert("El numero se traduce como " + unidadesLetra[15] + unidadesLetra[unidad]);
+            } else if ((unidad >= 1 && unidad <= 9) && (decena === 2 )){                                            //veintiuno a veintinueve
+                alert("El numero se traduce como "+ decenasLetra[decena - 2] + unidadesLetra[unidad]);
+            } else if ((unidad >= 1 && unidad <= 9) && (decena >= 1 && decena <= 9)){                               //decenas + unidades
+                alert("El numero se traduce como " + decenasLetra[decena] + " y " + unidadesLetra[unidad]);
+            } else {
+                alert("El numero introducido no está en el rango pedido, vuelve a intentarlo");
+            }
+            
+
+        }
+        
+    </script>
+</body>
+</html>

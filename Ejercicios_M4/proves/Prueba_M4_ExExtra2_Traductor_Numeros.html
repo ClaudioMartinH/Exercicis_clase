@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de numeros</title>
+</head>
+<h1>Bienvenidos al traductor de numeros</h1>
+<h2>Dime el numero que quieras y te lo traduciré a letras</h2>
+<h3>Recuerda que los numeros deben estar entre el 1 y el 99</h3>
+<p>Introduce un numero<input type="number" id="numero"></p>
+<button onclick="numeroTraducido()">Click para traducir</button>
+<p id="missatge"></p>
+<body>
+    <script>
+        function numeroTraducido(){
+
+            let unidadesLetra = ["","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve"];
+            let decenasLetra = ["","Diez","Veinte","Treinta","Cuarenta","Cincuenta","Sesenta","Setenta","Ochenta","Noventa"];
+            let especialesLetra = ["Once","Doce","Trece","Catorce","Quince","Dieci","Veinti"];
+            let numeroIntroducido = parseInt(document.getElementById("numero").value);
+            console.log(numeroIntroducido);
+            let decena = parseInt(numeroIntroducido / 10);
+            console.log(decena);
+            let unidad = parseInt(numeroIntroducido % 10);
+            console.log(unidad);
+            let decenas = decenasLetra[decena];
+            console.log(decenas);
+            let unidades = unidadesLetra[unidad];
+            console.log(unidades);
+            let mensaje = "";
+            //let especial = especiales[];
+
+            if ((unidad >= 1 && unidad <= 9) && decena === 0){
+                mensaje = alert("El numero se traduce como " + unidadesLetra[unidad]);
+                console.log(mensaje);
+            } else if (unidad === 0 && (decena >= 1 && decena <= 9)) {
+                mensaje = alert("El numero se traduce como " + decenasLetra[decena]);
+                console.log(mensaje)
+            } else if ((unidad >= 1 && unidad <= 9) && (decena >= 1 && decena <= 9)){
+                mensaje = alert("El numero se traduce como " + decenasLetra[decena] + " y " + unidadesLetra[unidad]);
+                console.log(mensaje)
+            } else {
+                alert("El numero introducido no está en el rango pedido, vuelve a intentarlo");
+                console.log(mensaje)
+            }
+            
+
+        }
+        
+    </script>
+</body>
+</html>

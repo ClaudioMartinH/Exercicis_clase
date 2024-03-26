@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endevina el numero</title>
+</head>
+    <h2>Juguem a endevinar el numero<i></h2>
+    <h3>Hauras de anar introduïnt numeros fins que l'encertis</h3>
+    <h4>Introdueix el numero aviam si l'endevines</h4>
+    <button onclick="comprobarNumero()">Clica per comprovar</button>   
+    <p id="missatge"></p> 
+<body>
+    <script>
+        function comprobarNumero(){
+            let numeroPersona = 0;
+            let numeroMaquina = Math.ceil((Math.random()*10));
+            console.log(numeroMaquina);
+            numeroPersona = Number(prompt("Introdueix un numero entre 1 i 10: "));
+            console.log(numeroPersona);
+            
+            
+            while (numeroPersona != numeroMaquina) {
+                numeroPersona = Number(prompt("Aquest no és, torna a intentar-ho"));
+            }
+            alert("Molt bé el numero era " + numeroMaquina);
+        }
+    </script>
+</body>
+</html>
